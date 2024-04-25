@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class RelativeNumbers
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        
+        // Ask for two numbers
+        System.out.println("Enter two numbers: ");
+        int x = input.nextInt();
+        int y = input.nextInt();
+        
+        // Compare the numbers as instructed
+        boolean lessThan = x < y;
+        boolean equalTo = x == y;
+        boolean greaterThan = x > y;
+        
+        // Display the results
+        System.out.println(x + " < " + y + ": " + lessThan);
+        System.out.println(x + " == " + y + ": " + equalTo);
+        System.out.println(x + " > " + y + ": " + greaterThan);
+    }
+}
