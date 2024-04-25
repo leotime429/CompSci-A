@@ -1,0 +1,29 @@
+Dog.java
+Solution Code
+public class Dog 
+{
+    private String breed;
+    private String name;
+
+    public Dog(String theBreed, String theName)
+    {
+        breed = theBreed;
+        name = theName;
+    }
+    
+    public String toString()
+    {
+        return name + " is a " + breed;
+    }
+}
+
+DogTester.java
+Solution Code
+public class DogTester 
+{
+    public static void main(String[] args) 
+    {
+        Dog golden = new Dog("Golden Retriever", "Sammy");
+        System.out.println(golden);
+    }
+}
