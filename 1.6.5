@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class NightOut
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        double dinner;
+        double miniGolf;
+        double dessert;
+        double total;
+        
+        System.out.println("How much did dinner cost? ");
+        dinner = input.nextDouble();
+        
+        System.out.println("How much is mini-golf for one person? ");
+        miniGolf = input.nextDouble();
+        
+        System.out.println("How much did dessert cost? ");
+        dessert = input.nextDouble();
+        
+        total = dinner + miniGolf * 2 + dessert;
+        
+        System.out.print("Dinner: $");
+        System.out.println(dinner);
+        System.out.print("Mini-Golf: $");
+        System.out.println(miniGolf);
+        System.out.print("Dessert: $");
+        System.out.println(dessert);
+        System.out.print("Grand Total: $");
+        System.out.println(total);
+
+    }
+}
