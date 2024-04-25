@@ -1,0 +1,74 @@
+Extremes.java
+Solution Code
+public class Extremes
+{
+    Integer min;
+    Integer max;
+    
+    // Constructor
+    public Extremes()
+    {
+        min = Integer.MIN_VALUE;
+        max = Integer.MAX_VALUE;
+    }
+    
+    // Returns the difference
+    // max - number
+    public Integer maxDiff(Integer number)
+    {
+        return max - number;
+    }
+
+    // Returns the difference
+    // min - number
+    public Integer minDiff(Integer number)
+    {
+        return min - number;
+    }
+    
+    // Returns a String representation
+    // in the form
+    // [min, max]
+    public String toString()
+    {
+        return "[" + min + ", " + max + "]";   
+    }
+}
+
+
+ExtremeMain.java
+Solution Code
+import java.util.Scanner;
+import java.lang.*;
+
+public class ExtremeMain
+{
+    public static void main(String[] args)
+    {
+        // Create a Scanner object
+        Scanner input = new Scanner(System.in);
+        
+        // Create an Extremes object
+        Extremes range = new Extremes();
+        
+        // Ask the user to guess the maximum value of an Integer
+        System.out.println("Guess the maximum Integer value: ");
+        Integer guess = input.nextInt();
+        
+        // Compute and display the absolute value of
+        // the difference between the max and the guess
+        Integer diff = range.maxDiff(guess);
+        System.out.println("You were off by " + diff);
+        
+        // Ask the user to guess the minimum value of an Integer
+        System.out.println("Guess the minimum Integer value: ");
+        guess = input.nextInt();
+        
+        // Compute and display the absolute value of
+        // the difference between the min and the guess
+        diff = range.minDiff(guess);
+        System.out.println("You were off by " + diff);
+        
+        
+    }
+}
