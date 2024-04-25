@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class TripleDouble 
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        // Ask for the three stats
+        System.out.println("How many points did you score? ");
+        int numPoints = input.nextInt();
+        
+        System.out.println("How many rebounds did you get? ");
+        int numRebounds = input.nextInt();
+        
+        System.out.println("How many assists did you have? ");
+        int numAssists = input.nextInt();
+        
+        // Create three boolean variables that
+        // check if the stats are 10 or more
+        boolean hasPoints = numPoints >= 10;
+        boolean hasRebounds = numRebounds >= 10;
+        boolean hasAssists = numAssists >= 10;
+        
+        // Print out the value of each boolean
+        // variable.  Be sure to label them!
+        System.out.println("You got 10 or more points: " + hasPoints);
+        System.out.println("You got 10 or more rebounds: " + hasRebounds);
+        System.out.println("You got 10 or more assists: " + hasAssists);
+        
+        
+    }
+}
