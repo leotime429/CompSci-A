@@ -1,0 +1,77 @@
+Construction.java
+Solution Code
+public class Construction
+{
+    
+    double lumber;  // price per board 
+    double windows; // price per square inch of window
+    double taxRate; 
+   
+    
+    public Construction(double lumberPrice, double windowPrice, double taxes)
+    {
+        lumber = lumberPrice;
+        windows = windowPrice;
+        taxRate = taxes;
+    }
+    
+    // Computes and returns the cost
+    // of the lumber
+    public double lumberCost(int numBoards)
+    {
+        return lumber * numBoards;   
+    }
+    
+    // Computes and returns the cost of the windows
+    public double windowCost(int numWindows)
+    {
+        return windows * numWindows;   
+    }
+    
+    // Computes the grand total by adding
+    // the tax amount to the total
+    public double grandTotal(double total)
+    {
+        return total * (1 + taxRate);
+    }
+    
+}
+
+
+
+ConstructionTester.java
+Solution Code
+import java.util.Scanner;
+
+public class ConstructionTester
+{
+    public static void main(String[] args)
+    {
+        int numBoards, numWindows;
+        double taxRate;
+        
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Enter the sales tax rate: ");
+        taxRate = input.nextDouble();
+        
+        System.out.println("How many boards do you need? ");
+        numBoards = input.nextInt();
+        
+        System.out.println("How many windows do you need? ");
+        numWindows = input.nextInt();
+        
+        
+        double total = 0;
+        Construction calc = new Construction(8, 11, taxRate);
+        
+        total += calc.lumberCost(numBoards);
+        total += calc.windowCost(numWindows);
+        
+        System.out.print("Total: ");
+        System.out.println(total);
+        
+        System.out.print("Grand Total: ");
+        System.out.println(calc.grandTotal(total));
+    }
+}
