@@ -1,0 +1,55 @@
+RaceMain.java
+Solution Code
+public class RaceMain
+{
+    public static void main(String[] args)
+    {
+        double distance = 2414; // ~ 1.5 miles
+        
+        // Generate a random acceleration for each car
+        double accel1 = Math.round(Math.random() * 100) / 100.0 + 1;
+        double accel2 = Math.round(Math.random() * 100) / 100.0 + 1;
+        
+        // Create two Racecar objects
+        Racecar redCar = new Racecar(accel1, "Karel");
+        Racecar blueCar = new Racecar(accel2, "Tracy");
+        
+        // Compute the finishing times for both cars
+        double redFinish = redCar.computeTime(distance);
+        double blueFinish = blueCar.computeTime(distance);
+        
+        // Print times of each car
+        System.out.println("First car finished in " + redFinish + " seconds");
+        System.out.println("Second car finished in " + blueFinish + " seconds");
+        
+        
+    }
+}
+
+
+Racecar.java
+Solution Code
+public class Racecar
+{
+    private double accel; // acceleration
+    private String name; // name of driver
+    
+    public Racecar(double acceleration, String driver)
+    {
+        accel = acceleration;
+        name = driver;
+    }
+    
+    // Returns the time it takes the racecar
+    // to complete the track
+    public double computeTime(double distance)
+    {
+        double time = Math.sqrt(2 * distance/ accel);
+        return Math.round(time*100) / 100.0;
+    }
+    
+    public String toString()
+    {
+        return "Racer " + name;
+    }
+}
