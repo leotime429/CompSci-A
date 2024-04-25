@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class MovieRatings
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Enter movie rating (as a decimal)"); 
+        double movieRating = input.nextDouble(); 
+        
+        // Round the movieRating to the nearest int and print it out!
+        int rounded = (int) (movieRating + 0.5);
+        System.out.print("Rating rounded: ");
+        System.out.println(rounded);
+    }
+}
+
