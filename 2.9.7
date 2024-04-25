@@ -1,0 +1,62 @@
+Currency.java
+Solution Code
+public class Currency
+{
+    private Double value;
+    
+    public Currency(Double startValue)
+    {
+        value = startValue;
+    }
+    
+    public void setValue(Double newValue)
+    {
+        value = newValue;
+    }
+    
+    public Integer getDollars()
+    {
+        Integer res = (int) value.doubleValue();
+        return res;
+    }
+    
+    public Integer getCents()
+    {
+        Integer cents = (int)(value * 100) % 100;
+        return cents;
+    }
+    
+    public String toString()
+    {
+        return "$" + getDollars() + "." + getCents();
+    }
+}
+
+
+
+CurrencyTester.java
+Solution Code
+public class CurrencyTester
+{
+    public static void main(String[] args)
+    {
+        Currency bankRoll = new Currency(12.45);
+        
+        System.out.println("Value of bankroll: " + bankRoll);
+        System.out.println("Dollars: " + bankRoll.getDollars());
+        System.out.println("Cents: " + bankRoll.getCents());
+        
+        
+        bankRoll.setValue(20.56);
+        System.out.println("Value of bankroll: " + bankRoll);
+        System.out.println("Dollars: " + bankRoll.getDollars());
+        System.out.println("Cents: " + bankRoll.getCents());
+        
+        bankRoll.setValue(67.78);
+        System.out.println("Value of bankroll: " + bankRoll);
+        System.out.println("Dollars: " + bankRoll.getDollars());
+        System.out.println("Cents: " + bankRoll.getCents());
+        
+        
+    }
+}
