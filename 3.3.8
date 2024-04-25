@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Basketball
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        // Ask for player names
+        System.out.println("Enter player one's name: ");
+        String firstName = input.nextLine();
+        
+        System.out.println("Enter player two's name: ");
+        String secondName = input.nextLine();
+        
+        
+        // Ask for scores 
+        System.out.println("Enter " + firstName + "'s score");
+        int p1Score = input.nextInt();
+        
+        System.out.println("Enter " + secondName + "'s score");
+        int p2Score = input.nextInt();
+        
+        // Print out scores in alphabetical order
+        if(firstName.compareTo(secondName) < 0)
+        {
+            System.out.println(firstName + " scored " + p1Score + " points");
+            System.out.println(secondName + " scored " + p2Score + " points");
+            
+        }
+        else 
+        {
+            System.out.println(secondName + " scored " + p2Score + " points");
+            System.out.println(firstName + " scored " + p1Score + " points");
+        }
+        
+        // Print who scored more points
+        if(p1Score > p2Score)
+        {
+            System.out.println(firstName + " wins!");
+        }
+        else 
+        {
+            System.out.println(secondName + " wins!");
+        }
+
+    }
+}
