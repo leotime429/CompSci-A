@@ -1,0 +1,71 @@
+Fraction.java
+Solution Code
+public class Fraction
+{
+    private int numerator;
+    private int denominator;
+    
+    public Fraction(int numer, int denom)
+    {
+        numerator = numer;
+        denominator = denom;
+    }
+    
+    
+    public int getNumerator()
+    {
+        return numerator;
+    }
+    
+    public int getDenominator()
+    {
+        return denominator;
+    }
+    
+    
+    // Returns a string representing a fraction
+    // in the form
+    // numerator/denominator
+    public String toString()
+    {
+        return numerator + "/" + denominator;
+    }
+    
+
+}
+
+
+FractionTester.java
+Solution Code
+import java.util.Scanner;
+
+public class FractionTester
+{
+    public static void main(String[] args)
+    {
+        // Create objects
+        Scanner input = new Scanner(System.in);
+        Fraction half = new Fraction(1, 2);
+        
+        // Ask for input
+        System.out.println("Enter the numerator: ");
+        int numer = input.nextInt();
+        System.out.println("Enter the denominator: ");
+        int denom = input.nextInt();
+        
+        // Create a new fraction
+        Fraction other = new Fraction(numer, denom);
+        
+        // Add the fractions
+        int totalNumer = denom * half.getNumerator() + numer * half.getDenominator();
+        int totalDenom = denom * half.getDenominator();
+        
+        Fraction sum = new Fraction(totalNumer, totalDenom);
+        
+        
+        // Print out the fractions as an equation
+        System.out.println(half + " + " +  other + " = " + sum);
+        
+        
+    }
+}
