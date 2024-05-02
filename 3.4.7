@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Salmon
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Enter month of year as a number: " );
+        int month = input.nextInt();
+        
+        // Strings not necessary, but useful
+        // since there's a lot of repetition
+        String notSpawning = "Not spawning season";
+        String fall = "Fall spawning season";
+        String spring = "Spring spawning season";
+        
+        
+        if(month < 3)
+        {
+            System.out.println(notSpawning);
+        } 
+        else if(month < 7)
+        {
+            System.out.println(spring);
+        } 
+        else if(month < 9)
+        {
+            System.out.println(notSpawning);
+        }
+        else if(month < 12)
+        {
+            System.out.println(fall);
+        }
+        else 
+        {
+            System.out.println(notSpawning);
+        }
+        
+    }
+}
