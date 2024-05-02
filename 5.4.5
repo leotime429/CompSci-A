@@ -1,0 +1,56 @@
+TextMessage.java
+Solution Code
+public class TextMessage
+{
+    private String message;
+    private String sender;
+    private String receiver;
+    
+    public TextMessage(String from, String to, String theMessage)
+    {
+        sender = from;
+        receiver = to;
+        message = theMessage;
+    }
+    
+    public String getSender()
+    {
+        return sender;
+    }
+    
+    public String getReceiver()
+    {
+        return receiver;
+    }
+    
+    public String getMessage()
+    {
+        return message;
+    }
+    
+    public String toString()
+    {
+        return sender + " texted " + receiver + ": " + message;
+    }
+}
+
+
+
+
+
+Messages.java
+Solution Code
+public class Messages
+{
+    public static void main(String[] args)
+    {
+        // Your code here.
+        // Create two TextMessage objects and print them out.
+        
+        TextMessage message1 = new TextMessage("Ada", "Alan", "Hey! How is it going?");
+        TextMessage message2 = new TextMessage("Alan", "Ada", "Pretty good how are you?");
+        
+        System.out.println(message1);
+        System.out.println(message2);
+    }
+}
