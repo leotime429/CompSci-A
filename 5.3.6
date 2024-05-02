@@ -1,0 +1,88 @@
+ActivityTracker.java
+Solution Code
+public class ActivityTracker
+{
+    public static void main(String[] args)
+    {
+        /** Answers will vary slightly **/
+        
+        //Create a new activity tracker
+        ActivityLog mylog = new ActivityLog();
+        
+        //Add miles and hours for day one
+        mylog.addMiles(5);
+        mylog.addHours(1);
+        
+        //Print out the total miles
+        System.out.print("Total Miles: ");
+        System.out.println(mylog.getMiles());
+        
+        // Save today's hours
+        double hoursToday = mylog.getHours();
+        
+        // Add hours for next two days
+        mylog.addHours(1.5);
+        mylog.addHours(3);
+        
+        // Calculate the increase in hours
+        double increase = mylog.getHours() - hoursToday;
+        
+        //Print out the results
+        System.out.print("There are ");
+        System.out.print(increase);
+        System.out.println(" more hours today than two days ago");
+    }
+}
+
+
+
+
+ActivityLog.java
+Solution Code
+public class ActivityLog
+{
+    private double numHours;
+    private double numMiles;
+    
+    /**
+     * Constructor for Activity log. Initializes hours and miles to 0.
+     */
+    public ActivityLog()
+    {
+        numHours = 0;
+        numMiles = 0;
+    }
+    /**
+     * Adds hours to the total.
+     * @param hours - Number of hours to add.
+     */
+    public void addHours(double hours)
+    {
+        numHours += hours;
+    }
+    /**
+     * Adds miles to the total
+     * @param miles - Number of miles to add.
+     */
+    public void addMiles(double miles)
+    {
+        numMiles += miles;
+    }
+    /**
+     * Returns the miles back to the user
+     * @return - Total miles
+     */
+    public double getMiles()
+    {
+        return numMiles;
+    }
+    /**
+     * Returns the hours back to the user
+     * @return - Total hours
+     */
+    public double getHours() 
+    {
+        return numHours;
+    }
+    
+}
