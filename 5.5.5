@@ -1,0 +1,82 @@
+Rectangle.java
+Solution Code
+public class Rectangle
+{
+    private int width;
+    private int height;
+    
+    /**
+     * This is the constructor to create a Rectangle.
+     * To create a Rectangle we need to know its width
+     * and height.
+     */
+    public Rectangle(int rectWidth, int rectHeight)
+    {
+        width = rectWidth;
+        height = rectHeight;
+    }
+    
+
+    public void setWidth(int rectWidth)
+    {
+        width = rectWidth;
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public void setHeight(int rectHeight)
+    {
+        height = rectHeight;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+    
+    public int getArea()
+    {
+        return width * height;    
+    }
+    
+    public int getPerimeter()
+    {
+        return 2 * width + 2 * height;
+    }
+
+    /**
+     * This is the toString method. It returns a String
+     * representation of the object. 
+     */
+    public String toString(){
+        String res = "Rectangle width: " + width;
+        res += ", Rectangle height: " + height;
+        return res;
+    }
+        
+}
+
+
+
+
+
+
+RectangleTester.java
+Solution Code
+public class RectangleTester
+{
+    public static void main(String[] args)
+    {
+        Rectangle room = new Rectangle(10, 20);
+        System.out.println(room);
+        System.out.print("Area: ");
+        System.out.println(room.getArea());
+        
+        System.out.print("Perimeter: ");
+        System.out.println(room.getPerimeter());
+        
+    }
+}
