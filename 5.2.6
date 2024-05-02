@@ -1,0 +1,43 @@
+DogTester.java
+Solution Code
+public class DogTester {
+    public static void main(String[] args) {
+
+        //Create 2 dog objects and then print them out
+        Dog karel = new Dog("Karel", 7, 15.6);
+        System.out.println(karel);
+
+        Dog clover = new Dog("Clover", 9);
+        System.out.println(clover);
+    }
+}
+
+
+
+
+
+
+Dog.java
+Solution Code
+public class Dog
+{
+    private String name;
+    private int age;
+    private double weight;
+
+    public Dog (String dogName, int dogAge, double dogWeight){
+        name = dogName;
+        age = dogAge;
+        weight = dogWeight;
+    }
+
+    public Dog (String dogName, int dogAge){
+        name = dogName;
+        age = dogAge;
+        weight = 0.0;
+    }
+
+    public String toString(){
+        return "Name: " + name + "\nWeight: " + weight +  "\nAge: " + age;
+    }
+}
