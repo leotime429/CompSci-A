@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class CYOA
+{
+    public static void main(String[] args) {
+        /** Answers will vary **/
+        
+        Scanner input = new Scanner(System.in);
+
+        //Intro
+        System.out.println("Welcome to the Fun House!");
+        System.out.println();
+        System.out.println("Everyday is a new adventure, so come on in");
+        System.out.println("and have a look around!");
+        System.out.println();
+
+        //First choice: Upstairs or Basement
+        System.out.println("You enter into the foyer, but don't see anything");
+        System.out.println("You here some sounds upstairs and in the basement.");
+        System.out.print("Do you want to head [U]pstairs or to the [B]asement? ");
+        String firstChoice = input.nextLine();
+
+        if (firstChoice.toUpperCase().substring(0,1).equals("U")){
+            //Upstairs Description
+            System.out.println("You head upstairs and start to see some lights flashing");
+            System.out.println("It looks like there is a strobe light in the bedroom");
+            System.out.println("and disco lights in the bathroom.");
+
+            //Second Choice (Bedroom): Bedroom or Bathroom
+            System.out.print("Do you head into the [B]edroom or the b[A]throom? ");
+                String secondChoice = input.nextLine();
+
+                if (secondChoice.toUpperCase().substring(0,1).equals("B")){
+                    //Bedroom Ending
+                    System.out.println("You head into the Bedroom and see everyone dancing.");
+                    System.out.println("The stribe light makes it easy to do the robot!");
+                } else {
+                    //Bathroom Ending
+                    System.out.println("You head into the Bathroom and see a party happening!");
+                    System.out.println("Unfortunatly the water is overflowing in the bathtub");
+                    System.out.println("and you get your feet wet!");
+                }
+        } else {
+            //Basement Description
+            System.out.println("You head tp the basement but can't see anything because it");
+            System.out.println("is dark. You hear some clanking sounds and it sounds");
+            System.out.println("like an animal is in the basement.");
+
+            //Second Choice (Basement): Lights on or off
+            System.out.print("Do you turn the light [ON] or leave them [OFF]? ");
+            String secondChoice = input.nextLine();
+
+            if (secondChoice.toUpperCase().substring(0,2).equals("ON")){
+                //Lights on Ending
+                System.out.println("You turn the lights on and see a dog trapped under the.");
+                System.out.println("little red wagon. You set him free and now");
+                System.out.println("have a new best friend!");
+            } else {
+                //Lights off Ending
+                System.out.println("You wander in the dark and suddenly hear an");
+                System.out.println("animal getting angry. A dog starts barking and");
+                System.out.println("scares you as you run out of the house!");
+            }
+        }
+    }
+}
