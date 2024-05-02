@@ -1,0 +1,88 @@
+DragonTester.java
+Solution Code
+public class DragonTester
+{
+    public static void main(String[] args)
+    {
+        Dragon pete = new Dragon("Pete", 80);
+        System.out.println(pete);
+        System.out.println(pete.getName());
+        System.out.println(pete.getLevel());
+        System.out.println(pete.isFireBreather());
+        
+        pete.attack();
+        
+        System.out.println();
+        
+        Dragon raven = new Dragon("Raven", 65);
+        System.out.println(raven);
+        System.out.println("Raven can breathe fire: " + raven.isFireBreather());
+        raven.attack();
+        raven.gainExperience();
+        System.out.println("Raven can breathe fire: " + raven.isFireBreather());
+        raven.attack();
+        
+    }
+}
+
+
+
+
+Dragon.java
+Solution Code
+public class Dragon 
+{
+    private String name;
+    private int level;
+    private boolean canBreatheFire;
+    
+    // Write the constructor here!
+    public Dragon(String dragonName, int dragonLevel){
+        name = dragonName;
+        level = dragonLevel;
+        if(dragonLevel > 70){
+            canBreatheFire = true;
+        } else {
+            canBreatheFire = false;
+        }
+    }
+    
+    // Put getters here
+    public String getName(){ 
+        return name;
+    }
+    public int getLevel(){
+        return level;
+    }
+    public boolean isFireBreather(){
+        return canBreatheFire;
+    }
+    
+    
+   // 
+   public void gainExperience(){
+       level += 10;
+       if(level > 70){
+           canBreatheFire = true;
+       }
+   }
+   
+   public void attack(){
+       if(canBreatheFire){
+           System.out.println(">>>>>>>>>>");
+           System.out.println(">>>>>>>>>>>>>>");
+           System.out.println(">>>>>>>>>>>>>>");
+           System.out.println(">>>>>>>>>>");
+           
+       } else {
+           System.out.println("~ ~ ~");
+       }
+   }
+    
+
+    // String representation of the object
+    public String toString()
+    {
+        return "Dragon " + name + " is at level " + level;
+    }
+}
