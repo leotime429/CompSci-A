@@ -1,0 +1,69 @@
+Distance.java
+Solution Code
+public class Distance
+{
+    private double miles;
+    
+    
+    //Constructor
+    public Distance(double startMiles)
+    {
+        miles = startMiles;
+    }
+    
+    // Converts miles to kilometers
+    public double toKilometers()
+    {
+        return miles / 0.62137;
+    }
+    // Converts miles to yards
+    public double toYards()
+    {
+        return miles * 1760;
+    }
+    
+    // Converts miles to feet
+    public double toFeet()
+    {
+        return miles * 5280;
+    }
+    
+    // Returns the miles
+    public double getMiles()
+    {
+        return miles;
+    }
+    
+    
+}
+
+
+
+DistanceTester.java
+Solution Code
+public class DistanceTester
+{
+    public static void main(String[] args)   
+    {
+        Distance school = new Distance(5);
+        Distance park = new Distance(10);
+        Distance bestFriend = new Distance(12);
+        
+        double yardsToSchool = school.toYards();
+        double kmToPark = park.toKilometers();
+        double ftToFriend = bestFriend.toFeet();
+        
+        System.out.print("Karel lives ");
+        System.out.print(yardsToSchool);
+        System.out.println(" yards from school");
+        
+        System.out.print("Karel lives ");
+        System.out.print(kmToPark);
+        System.out.println(" kilometers from the park");
+        
+        System.out.print("Karel lives ");
+        System.out.print(ftToFriend);
+        System.out.println(" feet from best friend");
+        
+    }
+}
