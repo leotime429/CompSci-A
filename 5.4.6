@@ -1,0 +1,58 @@
+DragonTester.java
+Solution Code
+public class DragonTester
+{
+    public static void main(String[] args)
+    {
+        Dragon pete = new Dragon(5, "%");
+        System.out.println(pete);
+        System.out.println(pete.getAttack());
+        System.out.println(pete.getLevel());
+        System.out.println(pete.fight());
+    }
+}
+
+
+
+
+Dragon.java
+Solution Code
+public class Dragon 
+{
+    private String attack;
+    private int level;
+    
+    // Write the constructor here!
+    public Dragon(int startLevel, String fightCall)
+    {
+        attack = fightCall;
+        level = startLevel;
+    }
+    
+    // Put getters here
+    public String getAttack()
+    {
+        return attack;
+    }
+    public int getLevel()
+    {
+        return level;
+    }
+    
+    // Put other methods here
+    public String fight()
+    {
+        String fightString = "";
+        for(int i = 0; i < level; i++)
+        {
+            fightString += attack;
+        }
+        return fightString;
+    }
+
+    // String representation of the object
+    public String toString()
+    {
+        return "Dragon is at level " + level + " and attacks with " + attack;
+    }
+}
