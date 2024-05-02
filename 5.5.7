@@ -1,0 +1,87 @@
+Routine.java
+Solution Code
+public class Routine
+{
+    private double sleep;
+    private double school;
+    private double sports;
+    private double fun;
+    
+    public Routine()
+    {
+        sleep = 0;
+        school = 0;
+        sports = 0;
+        fun = 0;
+    }
+    
+    public void setSleep(double hoursSleep)
+    {
+        sleep = hoursSleep;
+    }
+    
+    public void setSchool(double hoursSchool)
+    {
+        school = hoursSchool;
+    }
+    
+    
+    public void setSports(double hoursSports)
+    {
+        sports = hoursSports;
+    }
+    
+    public void setFun(double hoursFun)
+    {
+        fun = hoursFun;
+    }
+    
+    public void printTotal()
+    {
+    
+        double total = 7*sleep + 7*school + 7*sports + 7*fun;
+        double numHoursWeek = 7 * 24;
+        double leftOver = numHoursWeek - total;
+        
+        System.out.println("Weekly Totals");
+        
+        System.out.print("Sleep: ");
+        System.out.println(sleep * 7);
+        
+        System.out.print("School: ");
+        System.out.println(school * 7);
+        
+        System.out.print("Sports: ");
+        System.out.println(sports * 7);
+        
+        System.out.print("Fun: ");
+        System.out.println(fun * 7);
+        
+        System.out.print("Grand Total: " );
+        System.out.println(total);
+        
+        System.out.print("Hours left over: ");
+        System.out.println(leftOver);
+        
+    }
+}
+
+
+
+
+RoutineTester.java
+Solution Code
+public class RoutineTester
+{
+    public static void main(String[] args) 
+    {
+        Routine myWeek = new Routine();
+        
+        myWeek.setSchool(8);
+        myWeek.setSports(3);
+        myWeek.setSleep(8);
+        myWeek.setFun(2);
+        
+        myWeek.printTotal();
+    }
+}
