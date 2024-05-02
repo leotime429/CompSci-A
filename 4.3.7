@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Password
+{
+    public static void main(String[] args)
+    {
+        Scanner input  = new Scanner(System.in);
+        System.out.println("Enter your password: ");
+        String str = input.nextLine();
+        System.out.println(passwordCheck(str));
+    }
+    
+    public static boolean passwordCheck(String password)
+    {
+        if (password.length() < 8 )
+        {
+            return false;
+        }
+        String digits = "0123456789";
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        String pass = password.toLowerCase();
+    
+        for (int i = 0; i < pass.length(); i++)
+        {
+            String letter = pass.substring(i, i + 1);
+            if (digits.indexOf(letter) == -1 && alpha.indexOf(letter) == -1)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
