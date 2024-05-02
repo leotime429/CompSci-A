@@ -1,0 +1,100 @@
+StudentTester.java
+Solution Code
+public class StudentTester
+{
+    public static void main(String[] args)
+    {
+        Student alan = new Student("Alan", "Turing", 11, "Liberty High School");
+        Student ada = new Student("Ada", "Lovelace", 5);
+        
+        System.out.println(alan);
+        System.out.println(ada);
+        
+        SchoolClub code = new SchoolClub(ada, "Girls Who Code");
+        
+        System.out.println(code);
+    }
+}
+
+
+
+Student.java
+Solution Code
+public class Student
+{
+    private String firstName;
+    private String lastName;
+    private int gradeLevel;
+    private String school;
+
+    /**
+     * 
+     * Check out StudentTester.java for an example of how to use
+     * this constructor. 
+     */
+    public Student(String fName, String lName, int grade)
+    {
+        firstName = fName;
+        lastName = lName;
+        gradeLevel = grade;
+        
+        if (grade >= 9) {
+            school = "high school";
+        } else if (grade >= 6) {
+            school = "middle school";
+        } else {
+            school = "elementary school";
+        }
+        
+    }
+    
+     public Student(String fName, String lName, int grade, String mySchool)
+    {
+        firstName = fName;
+        lastName = lName;
+        gradeLevel = grade;
+        school = mySchool;
+    }
+    
+    public String getFirstName(){
+        return firstName;
+    }
+    
+    /**
+     * This is a toString for the Student class. It returns a String
+     * representation of the object, which includes the fields
+     * in that object.
+     */
+    public String toString()
+    {
+        return firstName + " " + lastName + " is in grade " + gradeLevel + " and goes to " + school;
+    }
+}
+
+
+
+
+
+SchoolClub.java
+Solution Code
+public class SchoolClub
+{
+
+    private Student leader;
+    private String name;
+    private int numMembers;
+
+    public SchoolClub(Student clubLeader, String clubName){
+        leader = clubLeader;
+        name = clubName;
+        numMembers = 0;
+    }
+
+    public void addMember() {
+        numMembers ++;
+    }
+
+    public String toString(){
+        return leader.getFirstName() + " is the leader of the " + name + " club.";
+    }
+}
