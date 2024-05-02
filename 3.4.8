@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Berries
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        // Ask for a berry initial
+        System.out.println("Enter the initial of the berry: ");
+        String berry = input.nextLine();
+        char initial = berry.charAt(0);
+        
+        // if initial is 'r' -- You ordered raspberry
+        // else if initial is 'h' -- You ordered huckleberry
+        // else if initial i 'g' -- You ordered goji berry
+        // else -- Berry not recognized.
+        
+        if(initial == 'r')
+        {
+            System.out.println("You ordered raspberry");
+        }
+        else if(initial == 'h')
+        {
+            System.out.println("You ordered huckleberry");
+        }
+        else if(initial == 'g')
+        {
+            System.out.println("You ordered goji berry");
+        }
+        else 
+        {
+            System.out.println("Berry not recognized");
+        }
+    }
+}
