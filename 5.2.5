@@ -1,0 +1,42 @@
+BaseballTester.java
+Solution Code
+public class BaseballTester
+{
+    public static void main(String[] args)
+    {
+        BaseballPlayer babeRuth = new BaseballPlayer("Babe Ruth", 2873, 8399);
+        System.out.println(babeRuth);
+        babeRuth.printBattingAverage();
+    }
+}
+
+
+
+BaseballPlayer.java
+Solution Code
+public class BaseballPlayer
+{
+    private int hits;
+    private int atBats;
+    private String name;
+    
+    public BaseballPlayer(String theName, int theHits, int theAtBats)
+    {
+        name = theName;
+        hits = theHits;
+        atBats = theAtBats;
+    }
+    
+    public void printBattingAverage()
+    {
+        double battingAverage = hits / (double) atBats;
+        System.out.println(battingAverage);
+    }
+    
+    public String toString()
+    {
+        return name + ": " + hits + "/" + atBats;
+    }
+    
+    
+}
