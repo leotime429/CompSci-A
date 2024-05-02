@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class FindMinimum 
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Enter the first integer: ");
+        int first = input.nextInt();
+        
+        System.out.println("Enter the second integer: ");
+        int second = input.nextInt();
+        
+        System.out.println("Enter the third integer: ");
+        int third = input.nextInt();
+        
+        System.out.print("\nThe minimum is ");
+        if(first <= second && first <= third)
+        {
+            System.out.println(first);
+        }
+        else if(second <= third)
+        {
+            System.out.println(second);
+        }
+        else
+        {
+            System.out.println(third);
+        }
+    }
+}
