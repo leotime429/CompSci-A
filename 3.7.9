@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class ThreeStrings
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("First String? ");
+        String first = input.nextLine(); 
+        
+        System.out.println("Second String? ");
+        String second = input.nextLine();
+        
+        System.out.println("Third String? "); 
+        String third = input.nextLine();
+        
+        boolean stringsEqual = (first+second).equals(third);
+        
+        if (stringsEqual) {
+            System.out.println(first + " + " + second  + " is equal to "+ third + "!");
+        } else {
+            System.out.println(first + " + " + second  + " is not equal to "+ third + "!");
+        }
+        
+    }
+    
+}
