@@ -1,0 +1,87 @@
+PersonTester.java
+Solution Code
+import java.util.Scanner;
+
+public class PersonTester
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Please enter the Person's name: ");
+        String name = input.nextLine();
+        
+        System.out.print("Please enter the Person's birthday: ");
+        String birthday = input.nextLine();
+        
+        Person person = new Person(name, birthday);
+        
+        System.out.print("Please enter the Student's name: ");
+        name = input.nextLine();
+        
+        System.out.print("Please enter the Student's birthday: ");
+        birthday = input.nextLine();
+        
+        System.out.print("Please enter the Student's grade: ");
+        int grade = input.nextInt();
+        
+        Student student = new Student(name, birthday, grade);
+        
+        System.out.println("Same: " + person.equals(student));
+    }
+}
+
+
+
+
+
+
+
+Person.java
+Solution Code
+public class Person {
+
+    private String name;
+    private String birthday;
+
+    public Person (String name, String birthday)
+    {
+        this.name = name;
+        this.birthday = birthday;
+    }
+
+    public String getBirthday(){
+        return birthday;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public boolean equals(Person other) {
+        return name.equals(other.getName()) &&
+               birthday.equals(other.getBirthday());
+    }
+}
+
+
+
+
+
+
+Student.java
+Solution Code
+public class Student extends Person {
+
+    private int grade;
+
+    public Student(String name, String birthday, int grade){
+        super(name, birthday);
+        this.grade = grade;
+    }
+
+    public int getGrade(){
+        return grade;
+    }
+}
+
