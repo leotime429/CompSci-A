@@ -1,0 +1,176 @@
+AssignmentRunner.java
+Solution Code
+import java.util.*;
+
+public class AssignmentRunner {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        ArrayList<Assignment> assignments = new ArrayList<Assignment>();
+
+        while (true) {
+
+            System.out.print("Please enter an assignment name (exit to quit): ");
+            String name = input.nextLine();
+
+            if(name.toLowerCase().equals("exit")) {
+                break;
+            }
+
+            System.out.print("Please enter the available points: ");
+            double pointsAvailable = input.nextDouble();
+
+            System.out.print("Please enter the earned points: ");
+            double pointsEarned = input.nextDouble();
+
+            input.nextLine(); //Clear the buffer
+
+            System.out.print("Is this a (t)est or (p)roject: ");
+            String testProject = input.nextLine();
+
+            if (testProject.toLowerCase().charAt(0) == 't') {
+                System.out.print("Please enter the test date: ");
+                String testDate = input.nextLine();
+                Assignment thisTest = new Test(name, pointsAvailable,
+                                pointsEarned, testDate);
+                assignments.add(thisTest);
+            } else {
+                System.out.print("Please enter the due date: ");
+                String dueDate = input.nextLine();
+
+                System.out.print("Group project? true or false: ");
+                boolean group = input.nextBoolean();
+                input.nextLine(); //Clear the buffer
+
+                Assignment thisProject = new Project(name, pointsAvailable,
+                                pointsEarned, dueDate, group);
+                assignments.add(thisProject);
+
+            }
+        }
+
+        System.out.println("Your average: " + average(assignments));
+
+    }
+
+    public static double average(ArrayList<Assignment> assignments) {
+        double sumEarned = 0;
+        double sumAvailable = 0;
+
+        for (Assignment assignment : assignments) {
+            sumEarned += assignment.getEarnedPoints();
+            sumAvailable += assignment.getAvailablePoints();
+        }
+
+        return sumEarned / sumAvailable * 100;
+    }
+}
+
+
+
+
+
+
+Assignment.java
+Solution Code
+public class Assignment {
+
+    private String name;
+    private double availablePoints;
+    private double earnedPoints;
+
+    public Assignment(String name, double availablePoints, double earnedPoints) {
+        this.name = name;
+        this.availablePoints = availablePoints;
+        this.earnedPoints = earnedPoints;
+    }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getAvailablePoints() {
+		return availablePoints;
+	}
+
+	public void setAvailablePoints(double availablePoints) {
+		this.availablePoints = availablePoints;
+	}
+
+	public double getEarnedPoints() {
+		return earnedPoints;
+	}
+
+	public void setEarnedPoints(double earnedPoints) {
+		this.earnedPoints = earnedPoints;
+	}
+}
+
+
+
+
+
+
+Test.java
+Solution Code
+public class Test extends Assignment {
+
+    private String testDate;
+
+    public Test(String name, double availablePoints,
+            double earnedPoints, String testDate){
+        super(name, availablePoints, earnedPoints);
+        this.testDate = testDate;
+    }
+
+	public String getTestDate() {
+		return testDate;
+	}
+
+	public void setTestDate(String testDate) {
+		this.testDate = testDate;
+	}
+
+}
+
+
+
+
+
+
+Project.java
+Solution Code
+public class Project extends Assignment {
+
+    private String dueDate;
+    private boolean groups;
+
+	public Project(String name, double availablePoints,
+            double earnedPoints, String dueDate, boolean groups) {
+		super(name, availablePoints, earnedPoints);
+		this.dueDate = dueDate;
+		this.groups = groups;
+	}
+
+	public String getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(String dueDate) {
+		this.dueDate = dueDate;
+	}
+
+	public boolean isGroups() {
+		return groups;
+	}
+
+	public void setGroups(boolean groups) {
+		this.groups = groups;
+	}
+}
