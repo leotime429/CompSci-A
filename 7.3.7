@@ -1,0 +1,71 @@
+ArrayListMethods.java
+Solution Code
+import java.util.ArrayList;
+
+public class ArrayListMethods
+{
+    public static void print(ArrayList<String> array)
+    {
+        for(int index = 0; index< array.size();index++)
+        {
+            System.out.println(array.get(index));
+        }
+    }
+    
+    public static void condense(ArrayList<String> array)
+    {
+        int index = 0;
+        while(index < array.size())
+        {
+            if(!(index == array.size()-1))
+            {
+                String sum = array.remove(index);
+                String sum2 = array.get(index);
+                array.set(index, sum + sum2);
+                
+            }
+            index++;
+        }
+    }
+    
+    public static void duplicate(ArrayList<String> array)
+    {
+        for(int index = 0; index< array.size(); index++)
+        {
+            array.add(index + 1, array.get(index));
+            index++;
+        }
+    }
+}
+
+
+
+
+
+
+ArrayListMethodsTester.java
+Solution Code
+import java.util.ArrayList;
+
+public class ArrayListMethodsTester
+{
+    public static void main(String[] args)
+    {
+        ArrayList<String> stringArray = new ArrayList<String>();
+        stringArray.add("This");
+        stringArray.add("is");
+        stringArray.add("an");
+        stringArray.add("ArrayList");
+        stringArray.add("of");
+        stringArray.add("Strings");
+        
+        ArrayListMethods.print(stringArray);
+        System.out.println("\nArrayList is condensing:");
+        ArrayListMethods.condense(stringArray);
+        ArrayListMethods.print(stringArray);
+        System.out.println("\nArrayList is duplicating:");
+        ArrayListMethods.duplicate(stringArray);
+        ArrayListMethods.print(stringArray);
+        
+    }
+}
