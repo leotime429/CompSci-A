@@ -1,0 +1,40 @@
+ArrayAverageTester.java
+Solution Code
+public class ArrayAverageTester
+{
+
+   public static void main(String[] args)
+   {
+     int[] numArray =  {12, 17, 65, 7, 30, 88};
+     
+     ArrayAverage myArray = new ArrayAverage(numArray);
+     
+     System.out.println("The average of the array is " + myArray.getAverage());
+   }
+}
+
+
+
+
+
+ArrayAverage.java
+Solution Code
+public class ArrayAverage
+{
+   private int[] values;
+
+   public ArrayAverage(int[] theValues)
+   {
+      values = theValues;
+   }
+
+   public double getAverage()
+   {
+     double total = 0;
+     for (int val : values)
+     {
+       total  = total + val;
+     }
+     return total / values.length;
+   }
+}
