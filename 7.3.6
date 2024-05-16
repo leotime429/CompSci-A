@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+public class Odds
+{
+    public static void main(String[] args)
+    {
+        ArrayList<Integer> odds = new ArrayList<Integer>();
+        // Pre-load the array list with values.
+        for(int index = 1; index < 21; index++)
+        {
+            odds.add(index);
+            odds.add(index);
+        }
+        
+        removeEvens(odds);
+        
+        for(int index = 0; index < odds.size(); index++)
+        {
+            System.out.println(odds.get(index));
+        }
+        
+    }
+    public static void removeEvens(ArrayList<Integer> array)
+    {
+        for(int index = 0; index < array.size(); index++)
+        {
+            if(array.get(index) % 2 == 0)
+            {
+                array.remove(index);
+                index--;
+            }
+        }
+
+    }
+}
