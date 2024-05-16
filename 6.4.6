@@ -1,0 +1,30 @@
+import java.util.*;
+public class Median
+{
+
+    public static void main(String[] args)
+    {
+        int[] numbers1 = {12, 75, 3, 17, 65, 22};
+        System.out.print("The median value of the EVEN array is " + median(numbers1));
+        
+        int[] numbers2 = {12, 75, 3, 17, 65, 22, 105};
+        System.out.print("\nThe median value of the ODD array is " + median(numbers2));
+        
+    }
+
+    public static double median(int[] arr)
+    {
+        Arrays.sort(arr);
+        
+        // If array is even length, return the average of the middle values
+        if(arr.length % 2 == 0)
+        {
+        	int index1 = arr.length / 2;
+        	int index0 = index1 - 1;
+            return (arr[index0] + arr[index1]) / 2.0;
+        }
+        
+        // If array is odd length, return the middle value
+        return arr[arr.length / 2];
+    }
+}
