@@ -1,0 +1,116 @@
+PieTester.java
+Solution Code
+import java.util.ArrayList;
+
+public class PieTester
+{
+    public static void main(String[] args)
+    {
+        // Answers may vary slightly
+        Pie pumpkin = new PumpkinPie(8, false);
+        Pie apple = new ApplePie(8);
+        Pie blueberry = new Pie("Blueberry", 8);
+        
+        // Solution with ArrayList
+        ArrayList<Pie> pies = new ArrayList<Pie>();
+        
+        pies.add(pumpkin);
+        pies.add(apple);
+        pies.add(blueberry);
+        
+        /* Solution with Array
+        Pie[] pies = new Pie[3];
+        pie[0] = pumpkin;
+        pie[1] = apple;
+        pie[2] = blueberry;
+        */
+        
+        for (Pie pie : pies) {
+            System.out.println("Pie: " + pie.getType());
+        }
+    }
+}
+
+
+
+
+
+
+Pie.java
+Solution Code
+public class Pie {
+
+    private String type;
+    private int slices;
+    
+    public Pie (String type, int slices) {
+        this.type = type;
+        this.slices = slices;
+    }
+    
+    public int getSlices (){
+        return slices;
+    }
+    
+    public void eatSlice(){
+        slices --;
+    }
+    
+    public String getType(){
+        return type;
+    }
+}
+
+
+
+
+
+
+ApplePie.java
+Solution Code
+public class ApplePie extends Pie {
+
+    public ApplePie (int slices) 
+    {
+        super("Apple", slices);
+    }
+    
+    public boolean hasSlice()
+    {
+        return super.getSlices() > 0;
+    }
+    
+    @Override
+    public void eatSlice()
+    {
+        if (this.hasSlice())
+        {
+        	super.eatSlice();
+        }
+    }
+}
+
+
+
+
+
+PumpkinPie.java
+Solution Code
+public class PumpkinPie extends Pie {
+    
+    private boolean canned;
+
+    public PumpkinPie (int slices, boolean canned) 
+    {
+        super("Pumpkin", slices);
+        this.canned = canned;
+    }
+    
+    public boolean canned()
+    {
+        return canned;
+    }
+    
+}
+
+
