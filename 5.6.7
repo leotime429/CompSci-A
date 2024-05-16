@@ -1,0 +1,105 @@
+Car.java
+Solution Code
+public class Car {
+	private double efficiency; //Miles per gallon
+	private double gas; //Gallons of gas
+	private double tankCapacity; //Gallons
+	private double totalMilesDriven; //Miles
+
+	public Car(double carEfficiency, double carTankCapacity){
+		efficiency=carEfficiency;
+		tankCapacity=carTankCapacity;
+		gas = 0;
+		totalMilesDriven=0;
+	}
+
+    public void addGas(){
+		gas = tankCapacity;
+        System.out.println("Filling up ...");
+	}
+
+	public void addGas(double amount) {
+		gas +=amount;
+        System.out.println("Adding gas ...");
+		if (gas > tankCapacity){
+			gas = tankCapacity;
+		}
+	}
+
+	public double getTotalMilesDriven(){
+		return totalMilesDriven;
+	}
+
+	public void drive(double distance) {
+		if (canDrive(distance)){
+			gas -= distance/efficiency;
+			totalMilesDriven += distance;
+            System.out.println("Driving " + distance);
+		}
+		else {
+            System.out.println("Can't drive " + distance + ". That's too far!");
+		}
+	}
+
+	public boolean canDrive (double distance){
+		if (gas*efficiency<distance){
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+    public double milesAvailable(){
+		return efficiency*gas;
+	}
+	public double getGas() {
+		return gas;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+CarTester.java
+Solution Code
+public class CarTester {
+
+    public static void main(String[] args) {
+        //Create a car that gets 20 mpg and has a 15 gallon tank
+        Car myWheels = new Car(20,15);
+        //Fill up the gas tank
+        myWheels.addGas();
+        //Check the miles available
+        System.out.println("Miles available: " + myWheels.milesAvailable());
+
+        //Drive 100 miles
+        myWheels.drive(100);
+
+        //Check the miles available
+        System.out.println("Miles available: " + myWheels.milesAvailable());
+
+        //Add 2 gallons to the gas tank
+        myWheels.addGas(2);
+
+        //Check the miles available
+        System.out.println("Miles available: " + myWheels.milesAvailable());
+
+        //Try driving more miles than available
+        myWheels.drive(1000);
+
+        //Drive 200 miles
+        myWheels.drive(200);
+
+        //Check how much gas you have left
+        System.out.println("Gas remaining: " + myWheels.getGas());
+
+        //Print total miles driven
+        System.out.println("Total Miles Driven: " + myWheels.getTotalMilesDriven());
+    }
+}
