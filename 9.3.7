@@ -1,0 +1,70 @@
+Car.java
+Solution Code
+public class Car {
+
+    private String model;
+    private String mpg;
+
+    public Car(String model, String mpg){
+        this.model = model;
+        this.mpg = mpg;
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public String getMPG(){
+        return mpg;
+    }
+
+    public String toString(){
+        return model + " gets " + mpg + " mpg.";
+    }
+}
+
+
+
+
+CarTester.java
+Solution Code
+public class CarTester {
+
+    public static void main(String[] args) {
+
+        Car miniVan = new Car("Odyssey", "22.1");
+        System.out.println("Model: " + miniVan.getModel());
+        System.out.println("MPG: " + miniVan.getMPG());
+        System.out.println(miniVan);
+
+        ElectricCar leaf = new ElectricCar("Leaf");
+        System.out.println("Model: " + leaf.getModel());
+        System.out.println("MPG: " + leaf.getMPG());
+        System.out.println(leaf);
+    }
+
+}
+
+
+
+
+
+ElectricCar.java
+Solution Code
+public class ElectricCar extends Car {
+
+    public ElectricCar(String model){
+        super(model, "N/A");
+    }
+
+    @Override
+    public String getMPG(){
+        return "Electric cars do not calculate MPG.";
+    }
+
+    // Remember, to get the model, use super.getModel()
+    @Override
+    public String toString(){
+        return super.getModel() + " is an electric car.";
+    }
+}
