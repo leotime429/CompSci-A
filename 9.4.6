@@ -1,0 +1,87 @@
+SquareTester.java
+Solution Code
+public class SquareTester {
+
+    public static void main(String[] args) {
+
+        Square block = new Square(10);
+        System.out.println(block);
+
+        block.setSideLength(5);
+
+        System.out.println("New Side Lengths: " + block.getSideLength());
+        System.out.println("Area: " + block.area());
+    }
+
+}
+
+
+
+
+
+Square.java
+Solution Code
+public class Square extends Rectangle {
+
+    public Square(double sideLength){
+        super(sideLength, sideLength);
+    }
+
+    public double getSideLength(){
+        return super.getWidth();
+    }
+
+    public void setSideLength(double sideLength){
+        super.setWidth(sideLength);
+        super.setHeight(sideLength);
+    }
+
+    public double area(){
+        return super.getWidth() * super.getHeight();
+    }
+
+    @Override
+    public String toString(){
+        return "Square with sideLengths " + getSideLength();
+    }
+}
+
+
+
+
+
+
+
+Rectangle.java
+Solution Code
+public class Rectangle {
+
+    private double width;
+    private double height;
+
+    public Rectangle(double w, double h){
+        width = w;
+        height = h;
+    }
+
+    public double getWidth(){
+        return width;
+    }
+
+    public void setWidth(double w){
+        width = w;
+    }
+
+    public double getHeight(){
+        return height;
+    }
+
+    public void setHeight(double h){
+        height = h;
+    }
+
+    public String toString(){
+        return "Rectangle with width " + width + " and height " + height;
+    }
+}
+
