@@ -1,0 +1,160 @@
+RoadTripTester.java
+Solution Code
+public class RoadTripTester
+{
+    public static void main(String[] args)
+    {
+        RoadTrip rt = new RoadTrip();
+        rt.addStop("San Francisco", 37.7833, -122.4167);
+        rt.addStop("Los Angeles", 34.052235, -118.243683);
+        rt.addStop("Las Vegas", 36.114647, -115.172813);
+
+        
+        System.out.println(rt);
+        
+        System.out.println("Stops: " + rt.getNumberOfStops());
+        System.out.println("Total Miles: " + rt.getTripLength());
+    }
+
+
+
+
+
+
+
+RoadTrip.java
+Solution Code
+import java.util.*;
+
+public class RoadTrip
+{
+    // Your instance variables here
+    private ArrayList<GeoLocation> stops;
+    
+    public RoadTrip()
+    {
+        stops = new ArrayList<GeoLocation>();
+        
+    }
+    
+    public void addStop(String name, double lat, double longitude)
+    {
+        GeoLocation stop = new GeoLocation(name, lat, longitude);
+        stops.add(stop);
+    }
+    
+    public int getNumberOfStops()
+    {
+        return stops.size();
+    }
+    
+    public String toString()
+    {
+        String result = "";
+        for(int i = 0; i < stops.size(); i++)
+        {
+            GeoLocation cur = stops.get(i);
+            result += (i + 1) + ". " + cur + "\n";
+        }
+        return result;
+    }
+    
+    public double getTripLength()
+    {
+        double length = 0;
+        for(int i = 0; i < stops.size() - 1; i++)
+        {
+            // Add the distance from i to i + 1
+            GeoLocation start = stops.get(i);
+            GeoLocation end = stops.get(i + 1);
+            double distance = start.distanceFrom(end);
+            length += distance;
+        }
+        return length;
+    }
+    
+    
+    // Your methods here
+}
+
+
+
+
+
+
+
+
+
+GeoLocation.java
+Solution Code
+/*
+ * This class stores information about a location on Earth.  Locations are
+ * specified using latitude and longitude.  The class includes a method for
+ * computing the distance between two locations.
+ *
+ * This implementation is based off of the example from Stuart Reges at 
+ * the University of Washington.
+ */
+
+public class GeoLocation 
+{
+    // Earth radius in miles
+    public static final double RADIUS = 3963.1676;  
+
+    private double latitude;
+    private double longitude;
+    private String name;
+
+    /**
+     * Constructs a geo location object with given latitude and longitude
+     */
+    public GeoLocation(String name, double theLatitude, double theLongitude) 
+    {
+        this.name = name;
+        latitude = theLatitude;
+        longitude = theLongitude;
+    }
+    
+    public String getName()
+    {
+        return this.name;
+    }
+
+    /**
+     * Returns the latitude of this geo location
+     */
+    public double getLatitude() 
+    {
+        return latitude;
+    }
+
+    /**
+     * returns the longitude of this geo location
+     */
+    public double getLongitude() 
+    {
+        return longitude;
+    }
+
+    // returns a string representation of this geo location
+    public String toString() 
+    {
+        return name + " (" + latitude + ", " + longitude + ")";
+    }
+
+    // returns the distance in miles between this geo location and the given
+    // other geo location
+    public double distanceFrom(GeoLocation other) 
+    {
+        double lat1 = Math.toRadians(latitude);
+        double long1 = Math.toRadians(longitude);
+        double lat2 = Math.toRadians(other.latitude);
+        double long2 = Math.toRadians(other.longitude);
+        // apply the spherical law of cosines with a triangle composed of the
+        // two locations and the north pole
+        double theCos = Math.sin(lat1) * Math.sin(lat2) +
+            Math.cos(lat1) * Math.cos(lat2) * Math.cos(long1 - long2);
+        double arcLength = Math.acos(theCos);
+        return arcLength * RADIUS;
+    }
+}
