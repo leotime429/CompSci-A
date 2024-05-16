@@ -1,0 +1,119 @@
+Animal.java
+Solution Code
+public class Animal
+{
+    private String type;
+
+    public String getType(){
+        return type;
+    }
+
+    public void setType(String type){
+        this.type = type;
+    }
+}
+
+
+
+
+Pet.java
+Solution Code
+public class Pet extends Animal
+{
+    
+    private String name;
+    private String size;
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getSize(){
+        return size;
+    }
+
+    public void setSize(String size){
+        this.size = size;
+    }
+}
+
+
+
+
+
+
+Dog.java
+Solution Code
+public class Dog extends Pet
+{
+    private boolean trained;
+
+    public boolean isTrained(){
+        return trained;
+    }
+
+    public void setTrained(boolean trained){
+        this.trained = trained;
+    }
+
+}
+
+
+
+
+Fish.java
+Solution Code
+public class Fish extends Pet
+{
+    private String saltFresh;
+
+    public String getSaltFresh(){
+        return saltFresh;
+    }
+
+    public void setSaltFresh(String saltFresh){
+        this.saltFresh = saltFresh;
+    }
+}
+
+
+
+
+
+AnimalTester.java
+Solution Code
+public class AnimalTester
+{
+    public static void main(String[] args)
+    {
+        Fish nemo = new Fish();
+        
+        nemo.setType("Fish");
+        nemo.setName("Nemo");
+        nemo.setSaltFresh("salt");
+        
+        Dog pluto = new Dog();
+        pluto.setTrained(true);
+        pluto.setName("Pluto");
+        
+        System.out.println(nemo.getName() + " is a " +
+            nemo.getType() + " that lives in " + 
+            nemo.getSaltFresh() + " water.");
+            
+        System.out.println(pluto.getName() + " is trained: " 
+        + pluto.isTrained());
+    }
+}
+
+
+
+
+
+
+
+
+
