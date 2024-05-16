@@ -1,0 +1,74 @@
+PersonRunner.java
+Solution Code
+ public class PersonRunner {
+    public static void main(String[] args) {
+
+        Person edison = new Person("Thomas Edison", "February 11, 1847");
+
+        Student einstein = new Student("Albert Einstein", "March 14, 1879,", 12, 5.0);
+
+        System.out.println(edison.getName());
+        System.out.println(edison.getBirthday());
+        System.out.println(einstein.getName());
+        System.out.println(einstein.getBirthday());
+        System.out.println(einstein.getGrade());
+        System.out.println(einstein.getGpa());
+    }
+}
+
+
+
+
+
+Person.java
+Solution Code
+public class Person {
+
+    private String name;
+    private String birthday;
+
+    public Person (String name, String birthday)
+    {
+        this.name = name;
+        this.birthday = birthday;
+    }
+
+    public String getBirthday(){ 
+        return birthday;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+
+}
+
+
+
+
+
+
+Student.java
+Solution Code
+public class Student extends Person {
+
+    private int grade;
+    private double gpa;
+
+    public Student(String name, String birthday, int grade, double gpa){
+        super(name, birthday);
+        this.grade = grade;
+        this.gpa = gpa;
+    }
+
+    public int getGrade(){
+        return grade;
+    }
+
+    public double getGpa(){
+        return gpa;
+    }
+}
+
+
