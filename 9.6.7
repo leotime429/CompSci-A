@@ -1,0 +1,95 @@
+CarTester.java
+Solution Code
+import java.util.*;
+
+public class CarTester
+{
+    public static void main(String[] args)
+    {
+       Scanner input = new Scanner(System.in);
+       
+       ArrayList<Car> cars = new ArrayList<Car>();
+       
+       while (true)
+       {
+            System.out.println("Please enter a car model name(exit to quit): ");
+            String model = input.nextLine();
+            if (model.toLowerCase().equals("exit")) {
+               break;
+            }
+            System.out.println("Is this car electric? (y or n) ");
+            if (input.nextLine().toLowerCase().charAt(0) == 'y')
+            {
+                Car electric = new ElectricCar(model);
+                cars.add(electric);
+            } else 
+            {
+                System.out.println("How many miles per gallon: ");
+                String mpg = input.nextLine();
+                Car car = new Car(model, mpg);
+                cars.add(car);
+            }
+       }
+       
+       for (Car car : cars){
+           System.out.println("Car: " + car.getModel());
+           System.out.println("MPG: " + car.getMPG());
+           System.out.println();
+       }
+    }
+}
+
+
+
+
+
+Car.java
+Solution Code
+public class Car {
+
+    //This code is complete
+    private String model;
+    private String mpg;
+
+    public Car(String model, String mpg){
+        this.model = model;
+        this.mpg = mpg;
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public String getMPG(){
+        return mpg;
+    }
+
+    public String toString(){
+        return model + " gets " + mpg + " mpg.";
+    }
+}
+
+
+
+
+
+
+ElectricCar.java
+Solution Code
+public class ElectricCar extends Car {
+
+    public ElectricCar(String model){
+        super(model, "N/A");
+    }
+
+    @Override
+    public String getMPG(){
+        return "Electric cars do not calculate MPG";
+    }
+
+    // Remember, to get the name, use super.getName()
+    @Override
+    public String toString(){
+        return super.getModel() + " is an electric car";
+    }
+}
