@@ -1,0 +1,111 @@
+FoodTester.java
+Solution Code
+public class FoodTester
+{
+    public static void main(String[] args)
+    {
+        Fruit apple = new Fruit("Apple", 200, true, "Red");
+        
+        HealthyFood salad = new HealthyFood("Salad", 50, "Vegtables");
+        
+        Food pizza = new Food("Pizza", 300);
+        
+        System.out.println(apple);
+        System.out.println(salad);
+        System.out.println(pizza);
+        
+    }
+}
+
+
+
+
+Food.java
+Solution Code
+public class Food
+{
+   private String name;
+   private int cal;
+   
+   public Food (String foodName, int calories){
+       name = foodName;
+       cal = calories;
+   }
+   
+   public String getName(){
+        return name;
+    }
+    
+    public void setName(String foodName){
+        name = foodName;
+    }
+    
+    public int getCal(){
+        return cal;
+    }
+    
+    public void setCal(int calories){
+        cal = calories;
+    }
+    
+    public String toString(){
+        return name + " has " + cal + " calories";
+    }
+}
+
+
+
+
+
+
+
+HealthyFood.java
+Solution Code
+public class HealthyFood extends Food
+{
+    private String group;
+    
+    public HealthyFood(String foodName, int calories, String foodGroup){
+        super(foodName, calories);
+        group = foodGroup;
+    }
+    
+    public String getGroup(){
+        return group;
+    }
+}
+
+
+
+
+
+
+Fruit.java
+Solution Code
+public class Fruit extends HealthyFood
+{
+    private boolean local;
+    private String color;
+    
+    public Fruit(String foodName, int calories, boolean isLocal, String foodColor){
+        super(foodName, calories, "Fruit");
+        local = isLocal;
+        color = foodColor;
+    }
+    
+    public boolean isLocal(){
+        return local;
+    }
+    
+    public void setLocal(boolean isLocal){
+        local = isLocal;
+    }
+    
+    public String getColor(){
+        return color;
+    }
+    
+    public void setColor(String foodColor){
+        color = foodColor;
+    }
+}
