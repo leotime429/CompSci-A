@@ -1,0 +1,94 @@
+BankTester.java
+Solution Code
+public class BankTester
+{
+    public static void main(String[] args)
+    {
+        
+        StudentAccount student = new StudentAccount("Ryan", 100);
+        System.out.println(student);
+        
+        student.deposit(30);
+        System.out.println(student);
+        
+        student.withdrawal(20);
+        System.out.println(student);
+        
+        Account regular = new Account("Melina", 100);
+        System.out.println(regular);
+        
+        regular.deposit(30);
+        System.out.println(regular);
+        
+        regular.withdrawal(20);
+        System.out.println(regular);
+    }
+}
+
+
+
+
+
+Account.java
+Solution Code
+public class Account
+{
+    private String name;
+    private double balance;
+    
+    public Account(String clientName, double openingBal){
+        
+        name = clientName;
+        balance = openingBal;
+    }
+    
+    public double getBalance(){
+        return balance;
+    }
+    
+    public void deposit(double amount){
+        balance += amount;
+    }
+    
+    public void withdrawal(double amount){
+        balance -= amount;
+    }
+    
+    public String toString(){
+        return "Regular account with a balance of $" + balance;
+    }
+}
+
+
+
+
+
+
+StudentAccount.java
+Solution Code
+public class StudentAccount extends Account
+{
+    
+    public StudentAccount(String studentName, double openingBal){
+        
+        super(studentName, openingBal);
+    }
+    
+    // Students get a $1 bonus on depositing
+    @Override
+    public void deposit(double amount){
+        super.deposit(amount + 1);
+    }
+    
+    // Students pay a $2 fee for withdrawing
+    @Override
+    public void withdrawal(double amount){
+        super.withdrawal(amount + 2);
+    }
+    
+    // Should read: Student account with a balance of $__.__
+    @Override
+    public String toString(){
+        return "Student account with a balance of $" + super.getBalance();
+    }
+}
