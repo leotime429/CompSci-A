@@ -1,0 +1,146 @@
+BookTester.java
+Solution Code
+import java.util.ArrayList;
+
+public class BookTester {
+
+    public static void main(String[] args) {
+
+        ArrayList<Book> library = new ArrayList<Book>();
+
+        TextBook java1 = new TextBook("Java Methods",
+            "Litvin / Litvin", "Computer Science", "3rd");
+        TextBook java2 = new TextBook("Java Software Solutions",
+            "Lewis / Loftus/ Cocking", "Computer Science", "2nd");
+        TextBook java3 = new TextBook("A Guide to Programming Java",
+            "Brown", "Computer Science", "1st");
+
+        Novel ender = new Novel("Ender's Game", "Orson Scott Card", "Science Fiction", 384);
+        Novel potter = new Novel("Harry Potter and the Sorcerer's Stone",
+                "J.K. Rowling", "Fantasy", 322);
+        Novel maze = new Novel("The Maze Runner", "James Dashner", "Action and Adventure", 375);
+
+        library.add(java1);
+        library.add(java2);
+        library.add(java3);
+
+        library.add(ender);
+        library.add(potter);
+        library.add(maze);
+
+        for (Book book : library) {
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println();
+        }
+    }
+}
+
+
+
+
+
+Book.java
+Solution Code
+public class Book {
+
+    private String title;
+    private String author;
+
+	public Book(String title, String author) {
+		this.title = title;
+		this.author = author;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+}
+
+
+
+
+
+
+
+Novel.java
+Solution Code
+public class Novel extends Book {
+
+    private String genre;
+    private int pages;
+
+	public Novel(String title, String author, String genre, int pages) {
+		super(title, author);
+		this.genre = genre;
+		this.pages = pages;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public int getPages() {
+		return pages;
+	}
+
+	public void setPages(int pages) {
+		this.pages = pages;
+	}
+}
+
+
+
+
+
+
+
+TextBook.java
+Solution Code
+public class TextBook extends Book {
+
+    private String subject;
+    private String edition;
+
+	public TextBook(String title, String author,
+                String subject, String edition) {
+		super(title, author);
+		this.subject = subject;
+		this.edition = edition;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getEdition() {
+		return edition;
+	}
+
+	public void setEdition(String edition) {
+		this.edition = edition;
+	}
+
+}
+
+
