@@ -1,0 +1,85 @@
+Employee.java
+Solution Code
+public class Employee {
+
+    private String name;
+    private double salary;
+
+    public Employee(String name, double annualSalary){
+        this.name = name;
+        salary = annualSalary;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public double getAnnualSalary(){
+        return salary;
+    }
+
+    public void setAnnualSalary(double annualSalary){
+        salary = annualSalary;
+    }
+
+    public String toString(){
+        return name + " makes $" + salary + " per year";
+    }
+}
+
+
+
+
+
+
+EmployeeTester.java
+Solution Code
+public class EmployeeTester {
+
+    public static void main(String[] args) {
+
+        Employee teacher = new Employee("Mr. Karel", 75000);
+        System.out.println(teacher);
+
+        HourlyEmployee cashier = new HourlyEmployee("Mike", 14.25, 25);
+
+        System.out.println(cashier);
+
+        cashier.setHourlySalary(18);
+        System.out.println(cashier);
+        System.out.println(cashier.getName() + " will make $" + cashier.getAnnualSalary() + " a year.");
+    }
+
+}
+
+
+
+
+
+
+
+
+HourlyEmployee.java
+Solution Code
+public class HourlyEmployee extends Employee {
+
+    private double hoursPerWeek;
+
+    public HourlyEmployee(String name, double hourlySalary, double hoursPerWeek){
+        super(name, hourlySalary * 52 * hoursPerWeek);
+        this.hoursPerWeek = hoursPerWeek;
+    }
+
+    public double getHourlySalary(){
+        return super.getAnnualSalary() / 52 / hoursPerWeek;
+    }
+
+    public void setHourlySalary(double hourlySalary){
+        super.setAnnualSalary(hourlySalary * 52 * hoursPerWeek);
+    }
+
+    @Override
+    public String toString(){
+        return super.getName() + " makes $" + getHourlySalary() + " per hour";
+    }
+}
