@@ -1,0 +1,116 @@
+ClothingTester.java
+Solution Code
+public class ClothingTester
+{
+    public static void main(String[] args)
+    {
+       
+        TShirt tShirt = new TShirt("large", "white", "cotton");
+
+        Sweatshirt sweatShirt = new Sweatshirt("XL", "blue", true);
+
+        Jeans jeans = new Jeans("10");
+        
+        Clothing clothing = new Clothing("small", "red");
+
+        System.out.println("You want a " + tShirt.getSize() + " "
+            + tShirt.getFabric() + " t-shirt in " + tShirt.getColor() + ".");
+        if (sweatShirt.hasHood())
+        {
+            System.out.println("And a " + sweatShirt.getSize() + " "
+                + sweatShirt.getColor() + " hooded sweatshirt.");
+        } else {
+            System.out.println("And a " + sweatShirt.getSize() + " "
+                + sweatShirt.getColor() + " sweatshirt.");
+        }
+        System.out.println("Also, " + jeans.getSize() + " " + jeans.getColor()
+            + " jeans.");
+            
+        System.out.println("Finally, " + clothing.getSize() + " " + clothing.getColor()
+            + " clothes.");
+    }
+}
+
+
+
+
+Clothing.java
+Solution Code
+public class Clothing
+{
+    private String size;
+    private String color;
+
+    public Clothing (String size, String color)
+    {
+        this.size = size;
+        this.color = color;
+    }
+
+    public String getSize()
+    {
+        return size;
+    }
+
+    public String getColor()
+    {
+        return color;
+    }
+}
+
+
+
+TShirt.java
+Solution Code
+public class TShirt extends Clothing
+{
+    private String fabric;
+
+    public TShirt(String size, String color, String fabric)
+    {
+        super(size, color);
+        this.fabric = fabric;
+    }
+
+    public String getFabric()
+    {
+        return fabric;
+    }
+}
+
+
+
+
+
+
+
+Jeans.java
+Solution Code
+public class Jeans extends Clothing
+{
+    public Jeans(String size)
+    {
+        super(size, "blue");
+    }
+}
+
+
+
+
+Sweatshirt.java
+Solution Code
+public class Sweatshirt extends Clothing
+{
+    private boolean hooded;
+
+    public Sweatshirt(String size, String color, boolean hooded)
+    {
+        super(size, color);
+        this.hooded = hooded;
+    }
+
+    public boolean hasHood()
+    {
+        return hooded;
+    }
+}
