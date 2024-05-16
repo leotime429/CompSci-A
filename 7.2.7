@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class Evens
+{
+    public static void main(String[] args)
+    {
+        ArrayList<Integer> evens = new ArrayList<Integer>();
+        //Create a for loop to add values 1-100 to the ArrayList
+        for(int index = 1; index < 101; index++)
+        {
+            if(index %2 == 0)
+            {
+                evens.add(index);
+            }
+        }
+        
+        printArray(evens);
+    }
+    
+    public static void printArray(ArrayList<Integer> classList)
+    {
+        System.out.println("Array:");
+        for(int name: classList)
+        {
+            System.out.print(name + " ");
+        }
+    }
+    
+    
+}
