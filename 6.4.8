@@ -1,0 +1,70 @@
+Student.java
+Solution Code
+public int getExamRange()
+{
+    int minExam = this.exams[0];
+    int maxExam = this.exams[0];
+    
+    for(int i = 1; i < this.numExamsTaken; i++) {
+        if(this.exams[i] < minExam){
+            minExam = this.exams[i];
+        }      
+        if(this.exams[i] > maxExam){
+            maxExam = this.exams[i];
+        }
+    }
+    return maxExam - minExam;
+}
+
+
+
+
+
+
+
+Classroom.java
+Solution Code
+public Student getMostImprovedStudent()
+{
+    Student mostImproved = this.students[0];
+    for(int i = 0; i < this.numStudentsAdded; i++) {
+        if(this.students[i].getExamRange() > mostImproved.getExamRange()) {
+            mostImproved = this.students[i];
+        }
+    }
+    return mostImproved;
+}
+
+
+
+
+
+
+
+ClassroomTester.java
+Solution Code
+public class ClassroomTester 
+{
+    public static void main (String[] args)
+    {
+        Classroom c = new Classroom(2);
+        
+        Student ada = new Student("Ada", "Lovelace", 12);
+        ada.addExamScore(44);
+        ada.addExamScore(65);
+        ada.addExamScore(77);
+
+        Student alan = new Student("Alan", "Turing", 11);
+        alan.addExamScore(38);
+        alan.addExamScore(24);
+        alan.addExamScore(31);
+
+        // add students to classroom
+        c.addStudent(ada);
+        c.addStudent(alan);
+        c.printStudents();
+        
+        Student mostImproved = c.getMostImprovedStudent();
+        System.out.println("The most improved student is " + mostImproved.getName());
+    }
+}
