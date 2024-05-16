@@ -1,0 +1,98 @@
+ComputerTester.java
+Solution Code
+public class ComputerTester
+{
+    public static void main(String[] args)
+    {
+        Laptop macBook = new Laptop();
+        macBook.setBatteryLife(8.5);
+        macBook.setMemory(4);
+        
+        Desktop dell = new Desktop();
+        dell.setScreenSize(18);
+        
+        Computer surface = new Computer();
+        surface.setScreenSize(11);
+        surface.setMemory(8);
+        
+        System.out.println(macBook.getBatteryLife());
+        System.out.println(macBook.getMemory());
+        System.out.println(dell.getScreenSize());
+        System.out.println(surface.getScreenSize());
+        System.out.println(surface.getMemory());
+    }
+}
+
+
+
+
+
+
+Computer.java
+Solution Code
+public class Computer
+{
+    private int screenSize;
+    private int memory;
+    
+    public int getScreenSize() {
+        return screenSize;
+    }
+    public int getMemory() {
+        return memory;
+    }
+    
+    public void setMemory(int memory) {
+        this.memory = memory;
+    }
+    
+    public void setScreenSize(int n) {
+        screenSize= n;
+    }
+}
+
+
+
+
+
+
+
+
+Laptop.java
+Solution Code
+public class Laptop extends Computer
+{
+   
+   private double batteryLife;
+   
+   public double getBatteryLife(){
+        return batteryLife;
+    }
+    
+    public void setBatteryLife(double batteryLife){
+        this.batteryLife = batteryLife;
+    }
+}
+
+
+
+
+
+
+
+
+Desktop.java
+Solution Code
+public class Desktop extends Computer
+{
+    
+    private boolean monitor;
+    
+    public boolean hasMonitor(){
+        return monitor;
+    }
+    
+    public void setMonitor(boolean monitor){
+        this.monitor = monitor;
+    }
+}
