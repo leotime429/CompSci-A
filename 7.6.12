@@ -1,0 +1,100 @@
+Phonebook.java
+Solution Code
+import java.util.ArrayList;
+
+public class Phonebook
+{
+    private ArrayList<PhoneNumber> directory = new ArrayList<PhoneNumber>();
+    
+    public void addNumber(PhoneNumber number)
+    {
+        directory.add(number);
+        sort();
+    }
+    
+    public void sort()
+    {
+        for(int index = 1; index < directory.size(); index++)
+        {
+            
+            PhoneNumber currentIndexPhone = directory.get(index);
+            
+            String currentIndexValue = currentIndexPhone.getName();
+            
+            int sortedIndex = index - 1;
+            
+            
+            while(sortedIndex > -1 && currentIndexValue.compareTo(directory.get(sortedIndex).getName()) < 0)
+            {
+            	directory.set((sortedIndex + 1), directory.get(sortedIndex));
+            	
+            	sortedIndex--;
+            }
+            
+            directory.set((sortedIndex + 1), currentIndexPhone);
+        }
+    }
+    
+    public void printPhoneBook()
+    {
+        for(PhoneNumber elem: directory)
+        {
+            System.out.println(elem.getName());
+        }
+    }
+}
+
+
+
+
+
+
+PhonebookTester.java
+Solution Code
+public class PhonebookTester
+{
+    public static void main(String[] args)
+    {
+        Phonebook test = new Phonebook();
+        test.addNumber(new PhoneNumber("Sherry", "12312312"));
+        test.addNumber(new PhoneNumber("Dylan", "12312312"));
+        test.addNumber(new PhoneNumber("Kevin", "12312312"));
+        test.addNumber(new PhoneNumber("Bob", "12312312"));
+        test.addNumber(new PhoneNumber("Alex", "12312312"));
+        test.printPhoneBook();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+PhoneNumber.java
+Solution Code
+public class PhoneNumber
+{
+    private String name;
+    private String number;
+
+    public PhoneNumber(String name, String number)
+    {
+        this.name = name;
+        this.number = number;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getNumber()
+    {
+        return number;
+    }
+}
