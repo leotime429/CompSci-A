@@ -1,0 +1,101 @@
+DataPurge.java
+Solution Code
+import java.util.ArrayList;
+
+public class DataPurge
+{
+    public static void removeDuplicates(ArrayList<String> list)
+    {
+        for(int index = 0; index < list.size(); index++)
+        {
+            String email = list.get(index);
+            for(int next = index + 1; next < list.size(); next++)
+            {
+                if(list.get(next).equals(email))
+                {
+                    System.out.println("Duplicate "+ list.get(next) + " removed");
+                    list.remove(next);
+                    next--;
+                }
+            }
+        }
+    }
+    
+    public static void removeAOL(ArrayList<String> list)
+    {
+        for(int index = 0; index< list.size(); index++)
+        {
+            String email = list.get(index);
+            if(email.contains("aol.com"))
+            {
+                System.out.println("Removing email: " + email);
+                list.remove(index);
+                index--;
+            }
+        }
+    }
+    
+    public static boolean containsOnlyEmails(ArrayList<String> list)
+    {
+        boolean allEmails = true;
+        for(int index = 0; index< list.size(); index++)
+        {
+            String email = list.get(index);
+            if(!email.contains("@") || !email.contains("."))
+            {
+                allEmails = false;
+            }
+        }
+        return allEmails;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+DataPurgeTester.java
+Solution Code
+import java.util.ArrayList;
+
+public class DataPurgeTester
+{
+    public static void main(String[] args)
+    {
+        ArrayList<String> emails = new ArrayList<String>();
+        addEmails(emails);
+        System.out.println("List is all emails: " +DataPurge.containsOnlyEmails(emails));
+        DataPurge.removeAOL(emails);
+        DataPurge.removeDuplicates(emails);
+        System.out.println(emails);
+    }
+    
+    
+    
+    public static void addEmails(ArrayList<String> emails)
+    {
+        emails.add("improv@gmail.com");
+        emails.add("tbmaddux@icloud.com");
+        emails.add("rfisher@outlook.com");
+        emails.add("anicolao@verizon.net");
+        emails.add("openldap@me.com");
+        emails.add("improv@gmail.com");
+        emails.add("improv@gmail.com");
+        emails.add("improv@gmail.com");
+        emails.add("alias@sbcglobal.net");
+        emails.add("portele@me.com");
+        emails.add("doormat@icloud.com");
+        emails.add("mailarc@aol.com");
+        emails.add("portele@me.com");
+        emails.add("rmcfarla@optonline.net");
+        emails.add("chrisk@verizon.net");
+        emails.add("gordonjcp@aol.com");
+        emails.add("improv@gmail.com");
+    }
+}
+
