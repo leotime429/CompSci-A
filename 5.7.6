@@ -1,0 +1,148 @@
+RockPaperScissors.java
+Solution Code
+import java.util.Scanner;
+
+public class RockPaperScissors 
+{
+    private static final String USER_PLAYER = "User wins!";
+    private static final String COMPUTER_PLAYER = "Computer wins!";
+    private static final String TIE = "Tie";
+     
+    /**
+     * Function: getWinner
+     * 
+     * Parameters:
+     * String user - a string holding the choice that the user player
+     * made. Must either be "rock", "paper", or "scissors"
+     * String computer - a string holding the choice that the computer
+     * player made. Must either be "rock", "paper", or "scissors"
+     * 
+     * Determines the winner based on the rules of rock paper scissors.
+     * Rock beats scissors and loses to paper
+     * Paper beats rock and loses to scissors
+     * Scissors beats paper and loses to rock
+     * Identical choices tie
+     * 
+     * Return: a string holding a message describing the winner, either
+     * USER_PLAYER, COMPUTER_PLAYER, or TIE
+     */
+    public static String getWinner(String user, String computer)
+    {
+        if(user.equals(computer))
+        {
+            return TIE;
+        }
+        if(user.equals("rock") && computer.equals("paper"))
+        {
+            return COMPUTER_PLAYER;
+        }
+        if(user.equals("rock") && computer.equals("scissors"))
+        {
+            return USER_PLAYER;
+        }
+        if(user.equals("paper") && computer.equals("rock"))
+        {
+            return USER_PLAYER;
+        }
+        if(user.equals("paper") && computer.equals("scissors"))
+        {
+            return COMPUTER_PLAYER;    
+        }
+        if(user.equals("scissors") && computer.equals("rock"))
+        {
+            return COMPUTER_PLAYER;
+        }
+        return USER_PLAYER;
+    } 
+    
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        while(true){
+            //Get the user's choice
+            System.out.println("Enter your choice (rock, paper, or scissors): ");
+            String choice = scanner.nextLine();
+            choice = choice.toLowerCase();
+            
+            //End the game if the user entered a blank line
+            if(choice.equals("")){
+                break;
+            }
+            
+            //Make sure it was a valid choice
+            if(choice.equals("rock") || choice.equals("paper") || choice.equals("scissors")){
+                //Print the user choice
+                System.out.println("User: " + choice);
+                
+                //Get the computer random choice
+                int compChoiceNum = Randomizer.nextInt(0,2);
+                String compChoice = "";
+                if (compChoiceNum == 0)
+                {
+                    compChoice = "rock";
+                }
+                else if (compChoiceNum == 1)
+                {
+                    compChoice = "paper";
+                }
+                else
+                {
+                    compChoice = "scissors";
+                }
+                
+                //Print the computer choice
+                System.out.println("Computer: " + compChoice);
+            
+                //Print the winner
+                System.out.println(getWinner(choice, compChoice));
+            }
+                
+            else{
+                System.out.println(choice + "is not a valid move. Please try again");
+            }
+        }
+        
+        //End the game with a nice message
+        System.out.println("Thanks for playing!");
+    }
+}
+
+
+/*
+//Print the user choice
+                System.out.println("User: " + choice);
+            
+                //Get the computer random choice
+                String[] compChoices = new String[]{"rock", "paper", "scissors"};
+                int compChoiceNum = Randomizer.nextInt(0, 2);
+                String compChoice = compChoices[compChoiceNum];
+                
+                //Print the computer choice
+                System.out.println("Computer: " + compChoice);
+            
+                //Print the winner
+                System.out.println(getWinner(choice, compChoice));
+            }
+*/
+
+
+
+
+Randomizer.java
+Solution Code
+public class Randomizer
+{
+    public static int nextInt()
+    {
+        //Implement this method to return a random number from 1-10
+        return (int)(Math.random() * (10) +1);
+    }
+    
+    public static int nextInt(int min, int max)
+    {
+        //Implement this method to return a random integer between min and max
+        int range = max - min;
+        return (int)(Math.random() * (range + 1) + min);
+    }
+}
