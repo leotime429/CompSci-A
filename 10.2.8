@@ -24,25 +24,8 @@ public class BinarySearchTest {
  
     }
 
-    public static int binaryRec(int[] array, int target, int begin, int end) {
-        if (begin <= end)
-        {
-        	int mid = (begin + end) / 2;
-            count ++;
-        	// Base Case
-        	if (target == array[mid]) {
-        			return mid;
-        	}
-    
-            if (target < array[mid]) {
-                return binaryRec(array, target, begin, mid - 1);
-            }
-    
-            if (target > array[mid]) {
-                return binaryRec(array, target, mid + 1, end);
-            }
-        }
-		return -1; //Alternate Base Case - not found
+private static int binaryMax(int length) {
+        return (int) (Math.log(length) / Math.log(2)) + 1;
     }
 
     public static int[] generateArrayOfLength(int length)
@@ -57,8 +40,25 @@ public class BinarySearchTest {
 
         return arr;
     }
-
-    private static int binaryMax(int length) {
-        return (int) (Math.log(length) / Math.log(2)) + 1;
+public static int binaryRec(int[] array, int target, int begin, int end) {
+        if (begin <= end)
+        {
+        	int mid = (begin + end) / 2;
+            count ++;
+        	if (target == array[mid]) {
+        			return mid;
+        	}
+    
+            if (target < array[mid]) {
+                return binaryRec(array, target, begin, mid - 1);
+            }
+    
+            if (target > array[mid]) {
+                return binaryRec(array, target, mid + 1, end);
+            }
+        }
+		return -1;
     }
+
+
 }
