@@ -4,13 +4,15 @@ public class StudentTester
 {
     public static void main(String[] args)
     {
-        Student alan = new Student("Alan", "Turing", 11, 3.5);
-        Student ada = new Student("Ada", "Lovelace", 12, 3.8);
+        Student alan = new Student("Alan", "Turing", 9, 1);
+        Student ada = new Student("Ada", "Lovelace", 11, 5);
         
         System.out.println(alan);
         System.out.println(ada);
     }
 }
+
+
 
 Student.java
 Solution Code
@@ -20,7 +22,8 @@ public class Student
     private String lastName;
     private int gradeLevel;
     
-    private double gpa;
+    // Add an instance variable called numClubs here.
+    private int numClubs;
     
     /**
      * This is a constructor.  A constructor is a method
@@ -30,14 +33,14 @@ public class Student
      * to the proper values.
      * 
      * Check out StudentTester.java for an example of how to use
-     * this constructor. 
+     * this constructor and how to add numClubs to the constructor. 
      */
-    public Student(String fName, String lName, int grade, double gradePointAverage)
+    public Student(String fName, String lName, int grade, int numberOfClubs)
     {
         firstName = fName;
         lastName = lName;
         gradeLevel = grade;
-        gpa = gradePointAverage;
+        numClubs = numberOfClubs;
     }
     
     /**
@@ -47,6 +50,7 @@ public class Student
      */
     public String toString()
     {
-        return firstName + " " + lastName + " is in grade: " + gradeLevel + " and has GPA: " + gpa;
+        return firstName + " " + lastName + " is in grade " + gradeLevel + 
+            " and is in " + numClubs + " club(s).";
     }
 }
