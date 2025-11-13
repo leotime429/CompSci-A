@@ -1,20 +1,28 @@
 import java.util.Scanner;
 
-public class MyAge
+public class CastingToInt
 {
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please enter your current age: "); 
-        int age = input.nextInt();
-        System.out.print("My current age is:"); 
-        System.out.println(age);
-        age++;
-        System.out.print("My age next year will be:");
-        System.out.println(age);
-        age--;
-        System.out.print("My current age is:");
-        System.out.println(age);
-      
+        
+        // Get double value
+        System.out.println("Enter a double: ");
+        double myDouble = input.nextDouble();
+        
+        // Cast double to an int
+        int castValue = (int) myDouble;
+        
+        // Print double value and after double is cast
+        System.out.println(myDouble);
+        System.out.println(castValue);
+        
+        // Add 0.5 and print again
+        myDouble += 0.5;
+        castValue = (int) myDouble;
+        
+        System.out.println(myDouble);
+        System.out.println(castValue);
+        
     }
 }
