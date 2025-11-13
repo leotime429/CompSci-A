@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class NightOut
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        double dinner = 0;
+        double laserTag = 0;
+        double iceCream = 0;
+        double total = 0;
+        
+        
+        System.out.println("How much does dinner usually cost? ");
+        dinner = input.nextDouble();
+        
+        // Compute cost of dinner for both people
+        dinner += dinner * 2;
+        
+        System.out.println("How much is laser tag for one person? ");
+        laserTag = input.nextDouble();
+        
+        // Compute cost of tag for both people
+        laserTag *= 2;
+        
+        System.out.println("How much does a triple scoop cost? ");
+        iceCream = input.nextDouble();
+        
+        // Compute cost of ice cream for both people
+        iceCream += iceCream / 3;
+        
+        // Find total cost of the night
+        total = dinner + laserTag + iceCream;
+        
+        System.out.println();
+        
+        // Print all totals
+        System.out.print("Dinner: $");
+        System.out.println(dinner);
+        System.out.print("Laser Tag: $");
+        System.out.println(laserTag);
+        System.out.print("Ice cream: $");
+        System.out.println(iceCream);
+        System.out.print("Grand Total: $");
+        System.out.println(total);
+
+    }
+}
