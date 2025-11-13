@@ -1,43 +1,43 @@
-Filer.java
+RosterOrganizer.java
 Solution Code
-public class Filer
+public class RosterOrganizer
 {
-    private String word;
+    private String student;
     
-    public Filer(String theWord)
+    public RosterOrganizer(String studentName)
     {
-        word = theWord;
+        student = studentName;
     }
     
     // Returns the word
-    public String getWord()
+    public String getStudent()
     {
-        return word;
+        return student;
     }
     
-    // Returns true if word comes
-    // before otherWord.
+    // Returns true if student comes
+    // before otherStudent.
     // Returns false otherwise.
-    public boolean comesBefore(String otherWord)
+    public boolean placeBefore(String otherStudent)
     {
-        return word.compareTo(otherWord) < 0;
-    }
-    
-    
-    // Returns true if word comes
-    // after otherWord.
-    // Returns false otherwise.
-    public boolean comesAfter(String otherWord)
-    {
-        return word.compareTo(otherWord) > 0;
+        return student.compareTo(otherStudent) < 0;
     }
     
     
-    // Returns true if word is equal to otherWord.
+    // Returns true if student comes
+    // after otherStudent.
     // Returns false otherwise.
-    public boolean isEqual(String otherWord)
+    public boolean placeAfter(String otherStudent)
     {
-        return word.equals(otherWord);   
+        return student.compareTo(otherStudent) > 0;
+    }
+    
+    
+    // Returns true if student is equal to otherStudent.
+    // Returns false otherwise.
+    public boolean isEqual(String otherStudent)
+    {
+        return student.equals(otherStudent);
     }
     
     
@@ -45,48 +45,48 @@ public class Filer
 
 
 
-FilerTester.java
+RosterTester.java
 Solution Code
 import java.util.Scanner;
 
-public class FilerTester
+public class RosterTester
 {
     public static void main(String[] args)
     {
-        Filer files = new Filer("hippo");
+        RosterOrganizer currentStudent = new RosterOrganizer("Jose");
         
-        String word = "zebra";
+        String name = "Silu";
         
-        System.out.println(files.getWord() + " comes before " + word + "?");
-        System.out.println(files.comesBefore(word));
-        System.out.println(files.getWord() + " comes after " + word + "?");
-        System.out.println(files.comesAfter(word));
-        System.out.println(files.getWord() + " is equal to  " + word + "?");
-        System.out.println(files.isEqual(word));
+        System.out.println(currentStudent.getStudent() + " place before " + name + "?");
+        System.out.println(currentStudent.placeBefore(name));
+        System.out.println(currentStudent.getStudent() + " place after " + name + "?");
+        System.out.println(currentStudent.placeAfter(name));
+        System.out.println(currentStudent.getStudent() + " is equal to  " + name + "?");
+        System.out.println(currentStudent.isEqual(name));
         
         
         // Notice that the capitalization matters
-        word = "Hippo";
+        name = "adrian";
         System.out.println("\n\n");
-        System.out.println(files.getWord() + " comes before " + word + "?");
-        System.out.println(files.comesBefore(word));
-        System.out.println(files.getWord() + " comes after " + word + "?");
-        System.out.println(files.comesAfter(word));
-        System.out.println(files.getWord() + " is equal to  " + word + "?");
-        System.out.println(files.isEqual(word));
+        System.out.println(currentStudent.getStudent() + " place before " + name + "?");
+        System.out.println(currentStudent.placeBefore(name));
+        System.out.println(currentStudent.getStudent() + " place after " + name + "?");
+        System.out.println(currentStudent.placeAfter(name));
+        System.out.println(currentStudent.getStudent() + " is equal to  " + name + "?");
+        System.out.println(currentStudent.isEqual(name));
         
         
         
         System.out.println("\n\n");
-        System.out.print("Enter a word: ");
+        System.out.print("Enter a name: ");
         Scanner input = new Scanner(System.in);
-        word = input.nextLine();
-        System.out.println(files.getWord() + " comes before " + word + "?");
-        System.out.println(files.comesBefore(word));
-        System.out.println(files.getWord() + " comes after " + word + "?");
-        System.out.println(files.comesAfter(word));
-        System.out.println(files.getWord() + " is equal to  " + word + "?");
-        System.out.println(files.isEqual(word));
+        name = input.nextLine();
+        System.out.println(currentStudent.getStudent() + " place before " + name + "?");
+        System.out.println(currentStudent.placeBefore(name));
+        System.out.println(currentStudent.getStudent() + " place after " + name + "?");
+        System.out.println(currentStudent.placeAfter(name));
+        System.out.println(currentStudent.getStudent() + " is equal to  " + name + "?");
+        System.out.println(currentStudent.isEqual(name));
 
     }
 }
