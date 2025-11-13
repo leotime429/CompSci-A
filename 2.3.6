@@ -17,9 +17,9 @@ public class Coffee
     // to a default cup of coffee
     public Coffee()
     {
-        brewStrength = 3;
+        brewStrength = 2;
         sugar = true;
-        milkType = "whole";
+        milkType = "nonfat";
     }
     
     // Specialized constructor
@@ -40,7 +40,21 @@ public class Coffee
     
 }
 
-
 CoffeeTester.java
 Solution Code
-No solution code.
+public class CoffeeTester
+{
+    public static void main(String[] args)
+    {
+        // Create Specialized Coffee
+        Coffee latte = new Coffee(4, false, "soy");
+        System.out.println(latte);
+        
+        // Create a default coffee
+        // This should work after you create the default
+        // constructor
+        Coffee plain = new Coffee();
+        System.out.println(plain);
+        
+    }
+}
