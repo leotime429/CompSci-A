@@ -1,71 +1,74 @@
-Pinata.java
+Website.java
 Solution Code
-public class Pinata
+public class Website
 {
-    // Instance variables
-    private String candy;    // what kind of candy is inside
-    private String color;    
-    private String shape;
+    // Instance Variables
+    private String topLevelDomain;    // com, edu, gov, us ...
+    private String domain;            // name of the website
+    private int numUsers;            // number of registered users
     
-    // Constructor without parameters
-    public Pinata()
+    
+    // Default constructor
+    public Website()
     {
-        candy = "hard candy";
-        color = "rainbow";
-        shape = "donkey";
+        topLevelDomain = "com";
+        numUsers = 0;
+        domain = "example";
     }
     
-    // Add an overloaded constructor that allows the user
-    // to customize all of the instance variables
-    public Pinata(String candyInside, String pinataColor, String pinataShape)
+    // Specify website URL
+    // Register a new website
+    public Website(String domainName, String topDomain)
     {
-        candy = candyInside;
-        color = pinataColor;
-        shape = pinataShape;
+        domain = domainName;
+        topLevelDomain = topDomain;
+        numUsers = 0;
     }
     
-    // Add an overloaded constructor that allows the user
-    // to customize the color and shape
-    public Pinata(String pinataColor, String pinataShape)
+    
+    // Specify website URL
+    // Register an old website
+    public Website(String domainName, String topDomain, int numPeople)
     {
-        candy = "hard candy";
-        color = pinataColor;
-        shape = pinataShape;
+        domain = domainName;
+        topLevelDomain = topDomain;
+        numUsers = numPeople;
     }
     
-    // Add an overloaded constructor that allows the user
-    // to customize the candy
-    public Pinata(String candyInside)
-    {
-        candy = candyInside;
-        color = "rainbow";
-        shape = "donkey";
-    }
+    
     
     public String toString()
     {
-        return color + " " + shape + " pinata filled with " + candy;
+        String res =  "https://www." + domain + "." + topLevelDomain;
+        res += " has " + numUsers + " users";
+        
+        return res;
     }
-    
 }
 
 
-PinataTester.java
+WebsiteTester.java
 Solution Code
-public class PinataTester
+public class WebsiteTester
 {
     public static void main(String[] args)
     {
-        // Make Pinatas!
-        Pinata ella = new Pinata();
-        Pinata pete = new Pinata("chocolate", "blue", "star");
-        Pinata sweetie = new Pinata("sour straws");
+        // Default website
+        // domain is an empty string
+        Website plain = new Website();
+        System.out.println(plain);
         
-        // Print the pinatas
-        System.out.println(ella);
-        System.out.println(pete);
-        System.out.println(sweetie);
+        // New website
+        // Specify the domain and top level domain, but
+        // the number of users is set to the default value
+        Website school = new Website("goodSchool", "edu");
+        System.out.println(school);
         
+        // Existing website
+        // Specify the domain and top level domain and
+        // the number of users 
+        Website codehs = new Website("codehs", "com", 1000000);
+        System.out.println(codehs);
         
     }
 }
