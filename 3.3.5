@@ -6,16 +6,16 @@ public class Numbers
     {
        Scanner input = new Scanner(System.in);
        
-       System.out.println("Enter a number: ");
+       System.out.println("Enter your mile time in seconds: ");
        int num = input.nextInt();
        
-       if(num >= 0)
+       if(num < 223)
        {
-           System.out.println("The number is positive!");
+           System.out.println("Are you sure? That's a new world record!");
        }
        else
        {
-           System.out.println("The number is negative!");
+           System.out.println("Right on! Keep running!");
        }
     }
 }
