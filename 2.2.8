@@ -1,29 +1,38 @@
-Dog.java
+Parakeet.java
 Solution Code
-public class Dog 
+public class Parakeet 
 {
-    private String breed;
     private String name;
-
-    public Dog(String theBreed, String theName)
+    // Add an instance variable here for color.
+    private String color;
+    
+    public Parakeet(String birdsName, String birdsColor)
     {
-        breed = theBreed;
-        name = theName;
+        name = birdsName;
+        color = birdsColor;
     }
     
+    // This method should work after you add the
+    // new instance variable and update the constructor.
+    // DO NOT modify this method.
     public String toString()
     {
-        return name + " is a " + breed;
+        return name + " is a " + color + " parakeet";
     }
 }
 
-DogTester.java
+
+
+
+
+
+ParakeetTester.java
 Solution Code
-public class DogTester 
+public class ParakeetTester
 {
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
-        Dog golden = new Dog("Golden Retriever", "Sammy");
-        System.out.println(golden);
+        Parakeet budgie = new Parakeet("Ron", "green");
+        System.out.println(budgie);
     }
 }
