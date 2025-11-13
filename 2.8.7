@@ -1,36 +1,38 @@
-Flower.java
+Animal.java
 Solution Code
-public class Flower
+public class Animal
 {
-
-    private String name;
-    private String color;
-    private String genus;
-    private String species;
-
-    public Flower(String theName, String theColor, String theGenus, String theSpecies)
+    private String commonName;
+    private String habitat;
+    private String diet;
+    private int typicalAge;
+    
+    
+    public Animal(String name, String animalHabitat, String animalDiet, int age)
     {
-        name = theName;
-        color = theColor;
-        genus = theGenus;
-        species = theSpecies;
+        commonName = name;
+        habitat = animalHabitat;
+        diet = animalDiet;
+        typicalAge = age;
     }
-
+    
     public String toString()
     {
-        return color + " " + name + " (" + genus + " " + species + ")";
+        String res = commonName + " lives in " + habitat + ", eats " + diet;
+        res += " and usually lives " + typicalAge + " years.";
+        
+        return res;
     }
 }
 
 
-
-FlowerTester.java
+AnimalTester.java
 Solution Code
-public class FlowerTester
+public class AnimalTester
 {
     public static void main(String[] args)
     {
-       Flower foxglove = new Flower("Foxglove", "Red", "Digitalis", "obscura");
-        System.out.println(foxglove);
+       Animal riverOtter = new Animal("North American River Otter", "rivers", "fish", 9);
+       System.out.println(riverOtter);
     }
 }
