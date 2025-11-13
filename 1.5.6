@@ -1,16 +1,21 @@
-public class MyAge
+import java.util.Scanner;
+
+public class Tshirt
 {
     public static void main(String[] args)
     {
-        int age = 14;
-        System.out.print("My current age is:"); 
-        System.out.println(age);
-        age++;
-        System.out.print("My age next year will be:");
-        System.out.println(age);
-        age--;
-        System.out.print("My current age is:");
-        System.out.println(age);
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the cost of the t-shirt: "); 
+        
+        int cost = input.nextInt();
+        System.out.print("The t-shirt costs $"); 
+        System.out.println(cost);
+        cost++;
+        System.out.print("A personalized t-shirt costs $");
+        System.out.println(cost);
+        cost--;
+        System.out.print("Without personalization, the t-shirt costs $");
+        System.out.println(cost);
       
     }
 }
