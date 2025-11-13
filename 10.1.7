@@ -1,35 +1,29 @@
-public class UnitCircle 
+import java.util.Scanner;
+
+public class Countdown
 {
     public static void main(String[] args)
     {
-        System.out.println("Radians: (cos, sin)");
-        
-        double angle = 0;
-        double cos = Math.cos(angle);
-        double sin = Math.sin(angle);
-        cos = Math.round(cos * 100) / 100.0;
-        sin = Math.round(sin * 100) / 100.0;
-        
-        System.out.println("" + angle + ": " + cos + ", " + sin);
+      
+      Scanner input = new Scanner(System.in);
+      
+      System.out.println("Enter starting number: ");
+      
+      int start = input.nextInt();
+      System.out.println(countdown(start));
+      
+       
+    }
     
-    
-        angle = Math.PI/2;
-        cos = Math.cos(angle);
-        sin = Math.sin(angle);
-        cos = Math.round(cos * 100) / 100.0;
-        sin = Math.round(sin * 100) / 100.0;
-        
-        System.out.println("" + angle + ": " + cos + ", " + sin);
-    
-    
-        angle = Math.PI;
-        cos = Math.cos(angle);
-        sin = Math.sin(angle);
-        cos = Math.round(cos * 100) / 100.0;
-        sin = Math.round(sin * 100) / 100.0;
-        
-        System.out.println("" + angle + ": " + cos + ", " + sin);
-    
-        
+    public static String countdown(int number)
+    {
+       
+       // Base case - return Blastoff!
+       if(number < 1){
+           return "Blastoff!";
+       }
+       
+       // Recursive call
+       return number + " " +  countdown(number - 2);
     }
 }
