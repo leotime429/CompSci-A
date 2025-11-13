@@ -1,72 +1,58 @@
-Website.java
+Rectangle.java
 Solution Code
-public class Website
+public class Rectangle
 {
-    // Instance Variables
-    private String topLevelDomain;    // com, edu, gov, us ...
-    private String domain;            // name of the website
-    private int numUsers;            // number of registered users
+    // Attributes
+    private int width;
+    private int height;
     
-    
-    // Default constructor
-    public Website()
+    // Constructor
+    // Copies the values of rectWidth and rectHeight
+    // into width and height, respectively
+    public Rectangle(int rectWidth, int rectHeight)
     {
-        topLevelDomain = "com";
-        numUsers = 0;
-        domain = "example";
+        width = rectWidth;
+        height = rectHeight;
     }
     
-    // Specify website URL
-    // Register a new website
-    public Website(String domainName, String topDomain)
+    // Constructor
+    // Allows user to construct a square
+    // Copies the value of sidelength
+    // into both width and height
+    public Rectangle(int sidelength)
     {
-        domain = domainName;
-        topLevelDomain = topDomain;
-        numUsers = 0;
-    }
-    
-    
-    // Specify website URL
-    // Register an old website
-    public Website(String domainName, String topDomain, int numPeople)
-    {
-        domain = domainName;
-        topLevelDomain = topDomain;
-        numUsers = numPeople;
+        width = sidelength;
+        height = sidelength;
     }
     
     
-    
+    // This method lets us print out the object
+    // to see the values of the instance variables
     public String toString()
     {
-        String res =  "https://www." + domain + "." + topLevelDomain;
-        res += " has " + numUsers + " users";
-        
-        return res;
+        return "Rectangle with width: " + width + " and height: " + height;
     }
 }
 
 
-public class WebsiteTester
+
+RectangleTester.java
+Solution Code
+public class RectangleTester
 {
     public static void main(String[] args)
     {
-        // Default website
-        // domain is an empty string
-        Website plain = new Website();
-        System.out.println(plain);
+        // Fix this code so there are no more
+        // null pointer exceptions
+        Rectangle brick = new Rectangle(3, 6);
+        Rectangle fencePost = new Rectangle(7, 2);
         
-        // New website
-        // Specify the domain and top level domain, but
-        // the number of users is set to the default value
-        Website school = new Website("goodSchool", "edu");
-        System.out.println(school);
+        System.out.println(brick);
+        System.out.println(fencePost);
         
-        // Existing website
-        // Specify the domain and top level domain and
-        // the number of users 
-        Website codehs = new Website("codehs", "com", 1000000);
-        System.out.println(codehs);
+        // Change the fencePost dimensions
+        fencePost = new Rectangle(2, 10);
+        System.out.println(fencePost);
         
     }
 }
